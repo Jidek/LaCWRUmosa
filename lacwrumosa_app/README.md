@@ -6,6 +6,8 @@ To run the app, do the following
 
 * Clone the repo
 
+* Install necessary libraries (like bundler `gem install bundler`)
+
 * Run `bundle install`
 
 * Configure a personal db_config.yml
