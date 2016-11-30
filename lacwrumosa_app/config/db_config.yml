@@ -5,11 +5,11 @@ production: &production
 development: &development
   database: lacwrumosa_dev
   username: root
-  password: password
+  password: sqlgshuum4s
   
 test: &test
   username: root
-  password: password
+  password: sqlgshuum4s
   
 profile: &profile
   database: xxxxx
