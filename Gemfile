@@ -47,7 +47,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # NO LONGER DEFAULT
 
-gem 'byebug' 
-gem 'rubycas-client'
+gem 'byebug'
+gem 'rubycas-client', :git => 'git://github.com/rubycas/rubycas-client.git'
 gem 'american_date'
-
