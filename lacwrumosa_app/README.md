@@ -1,24 +1,17 @@
-# README
+# LaCWRUmosa
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This app will allow for easy discovery of the best crying locations on CWRU campus as well as simple social networking for its users.
 
-Things you may want to cover:
+To run the app, do the following
 
-* Ruby version
+* Clone the repo
 
-* System dependencies
+* Run `bundle install`
 
-* Configuration
+* Configure a personal db_config.yml
 
-* Database creation
+* Run `rails db:create`
 
-* Database initialization
+* Run `rails server`
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Go to localhost:3000
