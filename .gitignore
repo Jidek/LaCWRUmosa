@@ -22,3 +22,6 @@
 
 # Ignore database configuration
 /config/db_config.yml
+
+# Ignore schema changes
+/db/schema.rb
