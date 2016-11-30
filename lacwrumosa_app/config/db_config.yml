@@ -1,0 +1,17 @@
+production: &production
+  username: xxxxx
+  password: xxxxx
+
+development: &development
+  database: lacwrumosa_dev
+  username: root
+  password: password
+  
+test: &test
+  username: root
+  password: password
+  
+profile: &profile
+  database: xxxxx
+  username: xxxxx
+  password: xxxxx
