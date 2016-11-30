@@ -10,7 +10,7 @@ To run the app, do the following
 
 * Run `bundle install`
 
-* Configure a personal db_config.yml (example found in `config/example_db_config/yml`)
+* Configure a personal db_config.yml (example found in `config/example_db_config.yml`)
 
 * Run `rails db:create`
 
