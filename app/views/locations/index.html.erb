@@ -1,0 +1,28 @@
+<%=content_tag :table do%>
+  <%=content_tag :tr do%>
+    <%=content_tag :td, "Location ID"%>
+    <%=content_tag :td, "Description"%>
+    <%=content_tag :td, "Latitude, Longitude"%>
+    <%=content_tag :td, "Building"%>
+    <%=content_tag :td, "Floor"%>
+    <%=content_tag :td, "Room"%>
+  <%end%>
+  <%@locations.each do |location|%>
+    <%=content_tag :tr do%>
+      <%=content_tag :td, link_to(location.ID, location)%>
+      <%=content_tag :td, location.Description%>
+      <%=content_tag :td, location.Latitude, location.Longitude%>
+      <%=content_tag :td, location.indoor_location.try(:Building) || "-"%>
+      <%=content_tag :td, location.indoor_location.try(:Floor) || "-"%>
+      <%=content_tag :td, location.indoor_location.try(:Room) || "-"%>
+      <%if session[:cas_user] == location.CreatorID%>
+        <%=content_tag :td, link_to("edit", edit_location_path(location))%>
+      <%end%>
+    <%end%>
+  <%end%>
+  <%=content_tag :tr do%>
+    <%=content_tag :td do%>
+      <%=link_to "New Location", new_location_path%>
+    <%end%>
+  <%end%>
+<%end%>

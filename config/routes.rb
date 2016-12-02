@@ -8,5 +8,7 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :locations
+
   root to: 'users#feed'
 end
