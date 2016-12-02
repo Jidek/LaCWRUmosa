@@ -1,5 +1,5 @@
 class IndoorLocation < ActiveRecord::Base
-  belongs_to :location
+  has_many :location
 
   def self.selectable_list
     IndoorLocation.all.map do |indoor_location|

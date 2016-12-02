@@ -29,7 +29,6 @@ class UsersController < ApplicationController
     else
       render action: :edit
     end
-
   end
 
   private
