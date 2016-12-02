@@ -22,14 +22,14 @@ class CreateTables < ActiveRecord::Migration[5.0]
               ON UPDATE CASCADE
           )",
           "CREATE TABLE indoor_locations (
-            IndoorID varchar(7) NOT NULL,
+            IndoorID varchar(7) NOT NULL AUTO_INCREMENT,
             Building varchar(50) NOT NULL,
             Floor varchar(50),
             Room varchar(50),
             PRIMARY KEY (IndoorID)
           )",
           "CREATE TABLE locations (
-            ID int NOT NULL,
+            ID int NOT NULL AUTO_INCREMENT,
             Description varchar(100) NOT NULL,
             Latitude float NOT NULL,
             Longitude float NOT NULL,
@@ -47,7 +47,7 @@ class CreateTables < ActiveRecord::Migration[5.0]
               ON UPDATE CASCADE
           )",
           "CREATE TABLE events (
-            ID int NOT NULL,
+            ID int NOT NULL AUTO_INCREMENT,
             Time datetime NOT NULL,
             LocationID int NOT NULL,
             PRIMARY KEY (ID),
