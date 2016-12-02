@@ -33,7 +33,7 @@ class CreateTables < ActiveRecord::Migration[5.0]
             Description varchar(100) NOT NULL,
             Latitude float NOT NULL,
             Longitude float NOT NULL,
-            IndoorID varchar(7),
+            IndoorID int,
             CreatorID varchar(7),
             CreateTime datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
             PRIMARY KEY (ID),
