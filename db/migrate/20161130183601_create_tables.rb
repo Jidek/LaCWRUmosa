@@ -22,7 +22,7 @@ class CreateTables < ActiveRecord::Migration[5.0]
               ON UPDATE CASCADE
           )",
           "CREATE TABLE indoor_locations (
-            IndoorID varchar(7) NOT NULL AUTO_INCREMENT,
+            IndoorID int NOT NULL AUTO_INCREMENT,
             Building varchar(50) NOT NULL,
             Floor varchar(50),
             Room varchar(50),
