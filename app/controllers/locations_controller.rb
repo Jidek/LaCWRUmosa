@@ -5,7 +5,7 @@ class LocationsController < ApplicationController
   end
 
   def show
-    @location = Location.find(params[:id]).includes(:indoor_location)
+    @location = Location.find(params[:id])
   end
 
   def new
@@ -20,6 +20,20 @@ class LocationsController < ApplicationController
       redirect_to location_url(@location)
     else
       render action: :new
+    end
+  end
+
+  def edit
+    @location = Location.find(params[:id])
+  end
+
+  def update
+    @location = Location.find(params[:id])
+
+    if @location.update_attributes(location_params)
+      redirect_to location_path(@location)
+    else
+      render action: :edit
     end
   end
 

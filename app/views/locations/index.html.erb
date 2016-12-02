@@ -11,7 +11,7 @@
     <%=content_tag :tr do%>
       <%=content_tag :td, link_to(location.ID, location)%>
       <%=content_tag :td, location.Description%>
-      <%=content_tag :td, location.Latitude, location.Longitude%>
+      <%=content_tag :td, "#{location.Latitude}, #{location.Longitude}"%>
       <%=content_tag :td, location.indoor_location.try(:Building) || "-"%>
       <%=content_tag :td, location.indoor_location.try(:Floor) || "-"%>
       <%=content_tag :td, location.indoor_location.try(:Room) || "-"%>
