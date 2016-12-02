@@ -1,0 +1,12 @@
+<%=content_tag :table do%>
+  <%=content_tag :tr do %>
+    <%=content_tag :th, "Time"%>
+    <%=content_tag :th, "Location"%>
+  <%end%>
+  <%@events.each do |event|%>
+    <%=content_tag :tr do%>
+      <%=content_tag :td, link_to(event.Time, event_path(event.id))%>
+      <%=content_tag :td, event.LocationID%> <!-- TODO link this to locations, once locations exist -->
+    <%end%>
+  <%end%>
+<%end%>

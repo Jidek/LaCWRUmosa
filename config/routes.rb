@@ -10,5 +10,9 @@ Rails.application.routes.draw do
 
   resources :locations
 
+  resources :check_ins
+
+  resources :events
+
   root to: 'users#feed'
 end
