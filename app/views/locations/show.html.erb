@@ -1,0 +1,12 @@
+<%=@location.ID%>
+<%=tag(:br)%>
+<%=@location.Description%>
+<%=tag(:br)%>
+<%=@location.Latitude, @location.Longitude%>
+<%if @location.indoor_location.present?%>
+  <%=tag(:br)%>
+  <%=@location.indoor_location.Building @location.indoor_location.Floor @location.indoor_location.Room%>
+<%end%>
+<%=tag(:br)%>
+
+<%=link_to "Location List", locations_path%>
