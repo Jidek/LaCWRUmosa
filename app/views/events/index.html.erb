@@ -6,7 +6,9 @@
   <%@events.each do |event|%>
     <%=content_tag :tr do%>
       <%=content_tag :td, link_to(event.time, event_path(event.id))%>
-      <%=content_tag :td, event.location_id%> <!-- TODO link this to locations, once locations exist -->
+      <%=content_tag :td, link_to("Location", location_path(event.location_id))%>
     <%end%>
   <%end%>
 <%end%>
+
+<%=link_to "Create new event", new_event_path%>

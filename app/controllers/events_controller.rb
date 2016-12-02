@@ -7,26 +7,38 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
   end
-  
-  # def edit
-  #   @user = User.find(params[:id])
-  # end
 
-  # def update
-  #   @user = User.find(params[:id])
-  #
-  #   if @user.update_attributes(user_params)
-  #     redirect_to user_path(@user)
-  #   else
-  #     render action: :edit
-  #   end
-  #
-  # end
+  def edit
+    @event = Event.find(params[:id])
+  end
+
+  def update
+    @event = Event.find(params[:id])
+
+    if @event.update_attributes(event_params)
+      redirect_to event_path(@event)
+    else
+      render action: :edit
+    end
+  end
+
+  def new
+    @event = Event.new
+  end
+
+  def create
+    @event = Event.new(event_params)
+    if @event.save
+      redirect_to event_url(@event)
+    else
+      render action: :new
+    end
+  end
 
   private
 
-  # def event_params
-  #   params.require(:user).permit(:id, :nickname, :grad_year, :major)
-  # end
+  def event_params
+    params.require(:event).permit(:id, :time, :location_id)
+  end
 
 end

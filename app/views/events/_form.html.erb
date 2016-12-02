@@ -1,0 +1,20 @@
+<%=content_tag :table do%>
+
+  <%=content_tag :tr do%>
+    <%=content_tag :td do%>
+      <%=form.label :Time, "Time:"%>
+    <%end%>
+    <%=content_tag :td do%>
+      <%=form.text_field :Time%>
+    <%end%>
+  <%end%>
+
+  <%=content_tag :tr do%>
+    <%=content_tag :td do%>
+      <%=form.label :LocationID, "Location ID:"%>
+    <%end%>
+    <%=content_tag :td do%>
+      <%=form.text_field :LocationID%>
+    <%end%>
+  <%end%>
+<%end%>
