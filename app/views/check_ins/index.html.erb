@@ -2,8 +2,8 @@
   <%@CheckIns.each do |check_in|%>
     <%=content_tag :tr do%>
       <%=content_tag :td, link_to(check_in.user.Nickname || check_in.UserID, user_path(check_in.user))%>
-      <%=content_tag :td, link_to(check_in.LocationID, location_path(check_in.location))%>
-      <%=content_tag :td, user.Time%>
+      <%=content_tag :td, link_to(check_in.location.Description, location_path(check_in.location))%>
+      <%=content_tag :td, check_in.Time%>
     <%end%>
   <%end%>
 <%end%>
