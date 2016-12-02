@@ -1,0 +1,34 @@
+<%=content_tag :h1, "Edit #{@user.UserID}"%>
+<%= form_for(@user) do |form| %>
+  <%=content_tag :table do%>
+    <%=content_tag :tr do%>
+      <%=content_tag :td do%>
+        <%=form.label :Nickname, "Nickname:"%>
+      <%end%>
+      <%=content_tag :td do%>
+        <%=form.text_field :Nickname%>
+      <%end%>
+    <%end%>
+    <%=content_tag :tr do%>
+      <%=content_tag :td do%>
+        <%=form.label :GradYear, "Graduation Year:"%>
+      <%end%>
+      <%=content_tag :td do%>
+        <%=form.text_field :GradYear%>
+      <%end%>
+    <%end%>
+    <%=content_tag :tr do%>
+      <%=content_tag :td do%>
+        <%=form.label :Major, "Major:"%>
+      <%end%>
+      <%=content_tag :td do%>
+        <%=form.text_field :Major%>
+      <%end%>
+    <%end%>
+    <%=content_tag :tr do%>
+      <%=content_tag :td do%>
+        <%= submit_tag "Update"%>
+      <%end%>
+    <%end%>
+  <%end%>
+<%end%>
