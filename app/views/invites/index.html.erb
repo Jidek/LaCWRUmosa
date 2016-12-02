@@ -1,0 +1,9 @@
+<%=content_tag :table do%>
+  <%@Invites.each do |invite|%>
+    <%=content_tag :tr do%>
+      <%=content_tag :td, link_to(invite.event.location.Description, user_path(invite.event.location))%>
+      <%=content_tag :td, invite.RSVP%>
+      <%=content_tag :td, "Accept"%>
+    <%end%>
+  <%end%>
+<%end%>
