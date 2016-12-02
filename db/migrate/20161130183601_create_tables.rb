@@ -34,35 +34,35 @@ class CreateTables < ActiveRecord::Migration[5.0]
             latitude float NOT NULL,
             longitude float NOT NULL,
             indoor_location_id int,
-            CreatorID varchar(7),
-            CreateTime datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-            PRIMARY KEY (ID),
+            creator_id varchar(7),
+            creation_time datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            PRIMARY KEY (id),
             FOREIGN KEY (indoor_location_id)
               REFERENCES indoor_locations(id)
               ON DELETE CASCADE
               ON UPDATE CASCADE,
-            FOREIGN KEY (CreatorID)
+            FOREIGN KEY (creator_id)
               REFERENCES users(user_id)
               ON DELETE SET NULL
               ON UPDATE CASCADE
           )",
           "CREATE TABLE events (
-            ID int NOT NULL AUTO_INCREMENT,
-            Time datetime NOT NULL,
-            LocationID int NOT NULL,
-            PRIMARY KEY (ID),
-            FOREIGN KEY (LocationID)
-              REFERENCES locations(ID)
+            id int NOT NULL AUTO_INCREMENT,
+            time datetime NOT NULL,
+            location_id int NOT NULL,
+            PRIMARY KEY (id),
+            FOREIGN KEY (location_id)
+              REFERENCES locations(id)
               ON DELETE CASCADE
               ON UPDATE CASCADE
           )",
           "CREATE TABLE invites (
-            EventID int NOT NULL,
+            event_id int NOT NULL,
             user_id varchar(7) NOT NULL,
-            RSVP int NOT NULL,
-            PRIMARY KEY (EventID, user_id),
-            FOREIGN KEY (EventID)
-              REFERENCES events(ID)
+            rsvp int NOT NULL,
+            PRIMARY KEY (event_id, user_id),
+            FOREIGN KEY (event_id)
+              REFERENCES events(id)
               ON DELETE CASCADE
               ON UPDATE CASCADE,
             FOREIGN KEY (user_id)
@@ -72,29 +72,29 @@ class CreateTables < ActiveRecord::Migration[5.0]
           )",
           "CREATE TABLE ratings (
             user_id varchar(7) NOT NULL,
-            LocationID int NOT NULL,
-            Rating int NOT NULL,
-            PRIMARY KEY (user_id, LocationID),
+            location_id int NOT NULL,
+            rating int NOT NULL,
+            PRIMARY KEY (user_id, location_id),
             FOREIGN KEY (user_id)
               REFERENCES users(user_id)
               ON DELETE CASCADE
               ON UPDATE CASCADE,
-            FOREIGN KEY (LocationID)
-              REFERENCES locations(ID)
+            FOREIGN KEY (location_id)
+              REFERENCES locations(id)
               ON DELETE CASCADE
               ON UPDATE CASCADE
           )",
           "CREATE TABLE check_ins (
             user_id varchar(7) NOT NULL,
-            LocationID int NOT NULL,
-            Time datetime NOT NULL,
-            PRIMARY KEY (user_id, LocationID, Time),
+            location_id int NOT NULL,
+            time datetime NOT NULL,
+            PRIMARY KEY (user_id, location_id, time),
             FOREIGN KEY (user_id)
               REFERENCES users(user_id)
               ON DELETE CASCADE
               ON UPDATE CASCADE,
-            FOREIGN KEY (LocationID)
-              REFERENCES locations(ID)
+            FOREIGN KEY (location_id)
+              REFERENCES locations(id)
               ON DELETE CASCADE
               ON UPDATE CASCADE
           )"]
