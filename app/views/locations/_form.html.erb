@@ -1,34 +1,34 @@
 <%=content_tag :table do%>
   <%=content_tag :tr do%>
     <%=content_tag :td do%>
-      <%=form.label :Description, "Descripton:"%>
+      <%=form.label :description, "Descripton:"%>
     <%end%>
     <%=content_tag :td do%>
-      <%=form.text_field :Description%>
-    <%end%>
-  <%end%>
-  <%=content_tag :tr do%>
-    <%=content_tag :td do%>
-      <%=form.label :Latitude, "Latitude:"%>
-    <%end%>
-    <%=content_tag :td do%>
-      <%=form.text_field :Latitude%>
+      <%=form.text_field :description%>
     <%end%>
   <%end%>
   <%=content_tag :tr do%>
     <%=content_tag :td do%>
-      <%=form.label :Longitude, "Longitude:"%>
+      <%=form.label :latitude, "latitude:"%>
     <%end%>
     <%=content_tag :td do%>
-      <%=form.text_field :Longitude%>
+      <%=form.text_field :latitude%>
     <%end%>
   <%end%>
   <%=content_tag :tr do%>
     <%=content_tag :td do%>
-      <%=form.label :IndoorID, "Indoor Location:"%>
+      <%=form.label :longitude, "longitude:"%>
     <%end%>
     <%=content_tag :td do%>
-      <%=form.select :IndoorID, options_for_select(IndoorLocation.selectable_list), {include_blank: true}%>
+      <%=form.text_field :longitude%>
+    <%end%>
+  <%end%>
+  <%=content_tag :tr do%>
+    <%=content_tag :td do%>
+      <%=form.label :indoor_location_id, "Indoor Location:"%>
+    <%end%>
+    <%=content_tag :td do%>
+      <%=form.select :indoor_location_id, options_for_select(IndoorLocation.selectable_list), {include_blank: true}%>
     <%end%>
   <%end%>
 <%end%>

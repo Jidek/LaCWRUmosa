@@ -1,28 +1,28 @@
-<%=content_tag :h1, "Edit #{@user.UserID}"%>
+<%=content_tag :h1, "Edit #{@user.user_id}"%>
 <%= form_for(@user) do |form| %>
   <%=content_tag :table do%>
     <%=content_tag :tr do%>
       <%=content_tag :td do%>
-        <%=form.label :Nickname, "Nickname:"%>
+        <%=form.label :nickname, "nickname:"%>
       <%end%>
       <%=content_tag :td do%>
-        <%=form.text_field :Nickname%>
-      <%end%>
-    <%end%>
-    <%=content_tag :tr do%>
-      <%=content_tag :td do%>
-        <%=form.label :GradYear, "Graduation Year:"%>
-      <%end%>
-      <%=content_tag :td do%>
-        <%=form.text_field :GradYear%>
+        <%=form.text_field :nickname%>
       <%end%>
     <%end%>
     <%=content_tag :tr do%>
       <%=content_tag :td do%>
-        <%=form.label :Major, "Major:"%>
+        <%=form.label :grad_year, "Graduation Year:"%>
       <%end%>
       <%=content_tag :td do%>
-        <%=form.text_field :Major%>
+        <%=form.text_field :grad_year%>
+      <%end%>
+    <%end%>
+    <%=content_tag :tr do%>
+      <%=content_tag :td do%>
+        <%=form.label :major, "major:"%>
+      <%end%>
+      <%=content_tag :td do%>
+        <%=form.text_field :major%>
       <%end%>
     <%end%>
     <%=content_tag :tr do%>

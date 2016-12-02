@@ -1,48 +1,48 @@
 class CreateTables < ActiveRecord::Migration[5.0]
   def up
     sql =["CREATE TABLE users (
-            UserID varchar(7) NOT NULL,
-            Nickname varchar(30),
-            GradYear int,
-            Major varchar(30),
-            PRIMARY KEY (UserID)
+            user_id varchar(7) NOT NULL,
+            nickname varchar(30),
+            grad_year int,
+            major varchar(30),
+            PRIMARY KEY (user_id)
           )",
           "CREATE TABLE friend_requests (
-            FromUserID varchar(7) NOT NULL,
-            ToUserID varchar(7) NOT NULL,
-            AcceptanceStatus int NOT NULL,
-            PRIMARY KEY (FromUserID, ToUserID),
-            FOREIGN KEY (FromUserID)
-              REFERENCES users(UserID)
+            from_user_id varchar(7) NOT NULL,
+            to_user_id varchar(7) NOT NULL,
+            acceptance_status int NOT NULL,
+            PRIMARY KEY (from_user_id, to_user_id),
+            FOREIGN KEY (from_user_id)
+              REFERENCES users(user_id)
               ON DELETE CASCADE
               ON UPDATE CASCADE,
-            FOREIGN KEY (ToUserID)
-              REFERENCES users(UserID)
+            FOREIGN KEY (to_user_id)
+              REFERENCES users(user_id)
               ON DELETE CASCADE
               ON UPDATE CASCADE
           )",
           "CREATE TABLE indoor_locations (
-            IndoorID int NOT NULL AUTO_INCREMENT,
-            Building varchar(50) NOT NULL,
-            Floor varchar(50),
-            Room varchar(50),
-            PRIMARY KEY (IndoorID)
+            id int NOT NULL AUTO_INCREMENT,
+            building varchar(50) NOT NULL,
+            floor varchar(50),
+            room varchar(50),
+            PRIMARY KEY (id)
           )",
           "CREATE TABLE locations (
-            ID int NOT NULL AUTO_INCREMENT,
-            Description varchar(100) NOT NULL,
-            Latitude float NOT NULL,
-            Longitude float NOT NULL,
-            IndoorID int,
+            id int NOT NULL AUTO_INCREMENT,
+            description varchar(100) NOT NULL,
+            latitude float NOT NULL,
+            longitude float NOT NULL,
+            indoor_location_id int,
             CreatorID varchar(7),
             CreateTime datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
             PRIMARY KEY (ID),
-            FOREIGN KEY (IndoorID)
-              REFERENCES indoor_locations(IndoorID)
+            FOREIGN KEY (indoor_location_id)
+              REFERENCES indoor_locations(id)
               ON DELETE CASCADE
               ON UPDATE CASCADE,
             FOREIGN KEY (CreatorID)
-              REFERENCES users(UserID)
+              REFERENCES users(user_id)
               ON DELETE SET NULL
               ON UPDATE CASCADE
           )",
@@ -58,25 +58,25 @@ class CreateTables < ActiveRecord::Migration[5.0]
           )",
           "CREATE TABLE invites (
             EventID int NOT NULL,
-            UserID varchar(7) NOT NULL,
+            user_id varchar(7) NOT NULL,
             RSVP int NOT NULL,
-            PRIMARY KEY (EventID, UserID),
+            PRIMARY KEY (EventID, user_id),
             FOREIGN KEY (EventID)
               REFERENCES events(ID)
               ON DELETE CASCADE
               ON UPDATE CASCADE,
-            FOREIGN KEY (UserID)
-              REFERENCES users(UserID)
+            FOREIGN KEY (user_id)
+              REFERENCES users(user_id)
               ON DELETE CASCADE
               ON UPDATE CASCADE
           )",
           "CREATE TABLE ratings (
-            UserID varchar(7) NOT NULL,
+            user_id varchar(7) NOT NULL,
             LocationID int NOT NULL,
             Rating int NOT NULL,
-            PRIMARY KEY (UserID, LocationID),
-            FOREIGN KEY (UserID)
-              REFERENCES users(UserID)
+            PRIMARY KEY (user_id, LocationID),
+            FOREIGN KEY (user_id)
+              REFERENCES users(user_id)
               ON DELETE CASCADE
               ON UPDATE CASCADE,
             FOREIGN KEY (LocationID)
@@ -85,12 +85,12 @@ class CreateTables < ActiveRecord::Migration[5.0]
               ON UPDATE CASCADE
           )",
           "CREATE TABLE check_ins (
-            UserID varchar(7) NOT NULL,
+            user_id varchar(7) NOT NULL,
             LocationID int NOT NULL,
             Time datetime NOT NULL,
-            PRIMARY KEY (UserID, LocationID, Time),
-            FOREIGN KEY (UserID)
-              REFERENCES users(UserID)
+            PRIMARY KEY (user_id, LocationID, Time),
+            FOREIGN KEY (user_id)
+              REFERENCES users(user_id)
               ON DELETE CASCADE
               ON UPDATE CASCADE,
             FOREIGN KEY (LocationID)

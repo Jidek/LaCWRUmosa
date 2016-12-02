@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   end
 
   def friends
-    me = User.where(UserID: session[:cas_user]).first
+    me = User.where(user_id: session[:cas_user]).first
     @friends = me.friends
   end
 
@@ -34,7 +34,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:Nickname, :GradYear, :Major)
+    params.require(:user).permit(:nickname, :grad_year, :major)
   end
 
 end

@@ -1,7 +1,7 @@
 <%=content_tag :table do%>
   <%@FriendRequests.each do |request|%>
     <%=content_tag :tr do%>
-      <%=content_tag :td, link_to(request.from.Nickname || request.FromUserID, user_path(request.from))%>
+      <%=content_tag :td, link_to(request.from.nickname || request.from_user_id, user_path(request.from))%>
       <%=content_tag :td, "Accept"%>
     <%end%>
   <%end%>

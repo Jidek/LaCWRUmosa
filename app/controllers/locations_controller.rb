@@ -14,8 +14,8 @@ class LocationsController < ApplicationController
 
   def create
     @location = Location.new(location_params)
-    @location.CreatorID = session[:cas_user]
-    @location.CreateTime = DateTime.now
+    @location.creator_id = session[:cas_user]
+    @location.creation_time = Datetime.now
     if @location.save
       redirect_to location_url(@location)
     else
@@ -40,7 +40,7 @@ class LocationsController < ApplicationController
   private
 
   def location_params
-    params.require(:location).permit(:Description, :Latitude, :Longitude, :IndoorID)
+    params.require(:location).permit(:description, :latitude, :longitude, :indoor_location_id)
   end
 
 end

@@ -1,9 +1,9 @@
 class IndoorLocation < ActiveRecord::Base
-  has_many :location
+  has_many :location, foreign_key: "indoor_location_id"
 
   def self.selectable_list
     IndoorLocation.all.map do |indoor_location|
-      ["#{indoor_location.Building} Floor #{indoor_location.Floor} Room #{indoor_location.Room}", indoor_location.IndoorID]
+      ["#{indoor_location.building} floor #{indoor_location.floor} room #{indoor_location.room}", indoor_location.indoor_location_id]
     end
   end
 

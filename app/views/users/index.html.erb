@@ -1,11 +1,11 @@
 <%=content_tag :table do%>
   <%@users.each do |user|%>
     <%=content_tag :tr do%>
-      <%=content_tag :td, link_to(user.UserID, user)%>
-      <%=content_tag :td, user.Nickname%>
-      <%=content_tag :td, user.GradYear%>
-      <%=content_tag :td, user.Major%>
-      <%if session[:cas_user] == user.UserID%>
+      <%=content_tag :td, link_to(user.user_id, user)%>
+      <%=content_tag :td, user.nickname%>
+      <%=content_tag :td, user.grad_year%>
+      <%=content_tag :td, user.major%>
+      <%if session[:cas_user] == user.user_id%>
         <%=content_tag :td, link_to("edit", edit_user_path(user))%>
       <%end%>
     <%end%>

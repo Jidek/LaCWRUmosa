@@ -4,8 +4,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def authenticate
-    if User.where(UserID: session[:cas_user]).blank?
-      User.create(UserID: session[:cas_user])
+    if User.where(user_id: session[:cas_user]).blank?
+      User.create(user_id: session[:cas_user])
     end
   end
 end

@@ -1,21 +1,21 @@
 <%=content_tag :table do%>
   <%=content_tag :tr do%>
-    <%=content_tag :td, "Location ID"%>
-    <%=content_tag :td, "Description"%>
-    <%=content_tag :td, "Latitude, Longitude"%>
-    <%=content_tag :td, "Building"%>
-    <%=content_tag :td, "Floor"%>
-    <%=content_tag :td, "Room"%>
+    <%=content_tag :td, "Location id"%>
+    <%=content_tag :td, "description"%>
+    <%=content_tag :td, "latitude, longitude"%>
+    <%=content_tag :td, "building"%>
+    <%=content_tag :td, "floor"%>
+    <%=content_tag :td, "room"%>
   <%end%>
   <%@locations.each do |location|%>
     <%=content_tag :tr do%>
-      <%=content_tag :td, link_to(location.ID, location)%>
-      <%=content_tag :td, location.Description%>
-      <%=content_tag :td, "#{location.Latitude}, #{location.Longitude}"%>
-      <%=content_tag :td, location.indoor_location.try(:Building) || "-"%>
-      <%=content_tag :td, location.indoor_location.try(:Floor) || "-"%>
-      <%=content_tag :td, location.indoor_location.try(:Room) || "-"%>
-      <%if session[:cas_user] == location.CreatorID%>
+      <%=content_tag :td, link_to(location.id, location)%>
+      <%=content_tag :td, location.description%>
+      <%=content_tag :td, "#{location.latitude}, #{location.longitude}"%>
+      <%=content_tag :td, location.indoor_location.try(:building) || "-"%>
+      <%=content_tag :td, location.indoor_location.try(:floor) || "-"%>
+      <%=content_tag :td, location.indoor_location.try(:room) || "-"%>
+      <%if session[:cas_user] == location.creator_id%>
         <%=content_tag :td, link_to("edit", edit_location_path(location))%>
       <%end%>
     <%end%>

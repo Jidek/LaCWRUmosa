@@ -1,15 +1,16 @@
-<%=@location.ID%>
+<%=@location.id%>
 <%=tag(:br)%>
-<%=@location.Description%>
+<%=@location.description%>
 <%=tag(:br)%>
-<%=@location.Latitude%>
-", "
-<%=@location.Longitude%>
+<%=@location.latitude%>
+<%=', '%>
+<%=@location.longitude%>
+<%byebug%>
 <%if @location.indoor_location.present?%>
   <%=tag(:br)%>
-  <%=@location.indoor_location.Building%>" "
-  <%=@location.indoor_location.Floor%>" "
-  <%=@location.indoor_location.Room%>
+  <%=@location.indoor_location.building%>" "
+  <%=@location.indoor_location.floor%>" "
+  <%=@location.indoor_location.room%>
 <%end%>
 <%=tag(:br)%>
 
