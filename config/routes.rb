@@ -14,5 +14,7 @@ Rails.application.routes.draw do
 
   resources :events
 
+  resources :friend_requests
+
   root to: 'users#feed'
 end
