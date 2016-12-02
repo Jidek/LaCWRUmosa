@@ -1,6 +1,13 @@
-<%=@event.Time%>
-<%=tag(:br)%>
-<%=@event.LocationID%>
+<%=content_tag :h1, "View Event"%>
+<%=content_tag :dl do%>
+  <%=content_tag :dt, "When"%>
+  <%=content_tag :dd, @event.Time%>
+
+  <%=content_tag :dt, "Where"%>
+  <%=content_tag :dd, @event.LocationID%>
+<%end%>
+
+<%=link_to "Edit", edit_event_path(@event)%>
 <%=tag(:br)%>
 
 <%=link_to "Events list", events_path%>
