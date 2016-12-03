@@ -87,7 +87,7 @@ class CreateTables < ActiveRecord::Migration[5.0]
           "CREATE TABLE check_ins (
             user_id varchar(7) NOT NULL,
             location_id int NOT NULL,
-            time datetime NOT NULL,
+            time datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
             PRIMARY KEY (user_id, location_id, time),
             FOREIGN KEY (user_id)
               REFERENCES users(user_id)

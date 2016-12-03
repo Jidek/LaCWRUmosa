@@ -9,7 +9,11 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :locations
+  resources :locations do
+    member do
+      patch :check_in
+    end
+  end
 
   resources :indoor_locations
 

@@ -37,6 +37,12 @@ class LocationsController < ApplicationController
     end
   end
 
+  def check_in
+    check_in = CheckIn.new(user_id: session[:cas_user], location_id: params[:id])
+    check_in.save
+    redirect_to location_url(params[:id])
+  end
+
   private
 
   def location_params
