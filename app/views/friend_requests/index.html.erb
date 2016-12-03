@@ -2,7 +2,8 @@
   <%@FriendRequests.each do |request|%>
     <%=content_tag :tr do%>
       <%=content_tag :td, link_to(request.from.nickname || request.from_user_id, user_path(request.from))%>
-      <%=content_tag :td, "Accept"%>
+      <%=content_tag :td, link_to("Accept", accept_friend_request_path({id:0, from_user_id: request.from_user_id, to_user_id: request.to_user_id}), {method: :patch})%>
+      <%=content_tag :td, link_to("Reject", reject_friend_request_path({id:0, from_user_id: request.from_user_id, to_user_id: request.to_user_id}), {method: :patch})%>
     <%end%>
   <%end%>
 <%end%>

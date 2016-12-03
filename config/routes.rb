@@ -17,7 +17,12 @@ Rails.application.routes.draw do
 
   resources :events
 
-  resources :friend_requests
+  resources :friend_requests do
+    member do
+      patch :accept
+      patch :reject
+    end
+  end
 
   resources :invites
 
