@@ -1,0 +1,26 @@
+<%=content_tag :table do%>
+  <%=content_tag :tr do%>
+    <%=content_tag :td do%>
+      <%=form.label :building, "Building:"%>
+    <%end%>
+    <%=content_tag :td do%>
+      <%=form.text_field :building%>
+    <%end%>
+  <%end%>
+  <%=content_tag :tr do%>
+    <%=content_tag :td do%>
+      <%=form.label :floor, "Floor:"%>
+    <%end%>
+    <%=content_tag :td do%>
+      <%=form.text_field :floor%>
+    <%end%>
+  <%end%>
+  <%=content_tag :tr do%>
+    <%=content_tag :td do%>
+      <%=form.label :room, "Room:"%>
+    <%end%>
+    <%=content_tag :td do%>
+      <%=form.text_field :room%>
+    <%end%>
+  <%end%>
+<%end%>

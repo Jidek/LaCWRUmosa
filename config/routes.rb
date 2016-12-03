@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
   resources :locations
 
+  resources :indoor_locations
+
   resources :check_ins
 
   resources :events

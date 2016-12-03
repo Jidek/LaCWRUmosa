@@ -1,0 +1,15 @@
+<%=content_tag :h1, 'New Indoor Location'%>
+<%=form_for(@indoor_location) do |form| %>
+  <%=content_tag :table do%>
+    <%=content_tag :tr do%>
+      <%=content_tag :td do%>
+        <%=render partial: 'form', locals:{form:form}%>
+      <%end%>
+    <%end%>
+    <%=content_tag :tr do%>
+      <%=content_tag :td do%>
+        <%=submit_tag "Create"%>
+      <%end%>
+    <%end%>
+  <%end%>
+<%end%>
