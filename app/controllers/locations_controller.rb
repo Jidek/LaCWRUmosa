@@ -15,7 +15,7 @@ class LocationsController < ApplicationController
   def create
     @location = Location.new(location_params)
     @location.creator_id = session[:cas_user]
-    @location.creation_time = Datetime.now
+    @location.creation_time = DateTime.now
     if @location.save
       redirect_to location_url(@location)
     else
@@ -29,7 +29,6 @@ class LocationsController < ApplicationController
 
   def update
     @location = Location.find(params[:id])
-
     if @location.update_attributes(location_params)
       redirect_to location_path(@location)
     else

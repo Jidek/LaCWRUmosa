@@ -2,14 +2,12 @@
 <%=tag(:br)%>
 <%=@location.description%>
 <%=tag(:br)%>
-<%=@location.latitude%>
-<%=', '%>
+<%=@location.latitude%>,
 <%=@location.longitude%>
-<%byebug%>
 <%if @location.indoor_location.present?%>
   <%=tag(:br)%>
-  <%=@location.indoor_location.building%>" "
-  <%=@location.indoor_location.floor%>" "
+  <%=@location.indoor_location.building%>
+  <%=@location.indoor_location.floor%>
   <%=@location.indoor_location.room%>
 <%end%>
 <%=tag(:br)%>

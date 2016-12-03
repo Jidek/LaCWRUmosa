@@ -28,7 +28,7 @@
       <%=form.label :indoor_location_id, "Indoor Location:"%>
     <%end%>
     <%=content_tag :td do%>
-      <%=form.select :indoor_location_id, options_for_select(IndoorLocation.selectable_list), {include_blank: true}%>
+      <%=form.select :indoor_location_id, options_for_select(IndoorLocation.selectable_list, @location.indoor_location_id), {include_blank: true}%>
     <%end%>
   <%end%>
 <%end%>
