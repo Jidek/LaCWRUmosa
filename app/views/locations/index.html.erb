@@ -1,15 +1,17 @@
 <%=content_tag :table do%>
   <%=content_tag :tr do%>
     <%=content_tag :td, "Location id"%>
-    <%=content_tag :td, "description"%>
-    <%=content_tag :td, "latitude, longitude"%>
-    <%=content_tag :td, "building"%>
-    <%=content_tag :td, "floor"%>
-    <%=content_tag :td, "room"%>
+    <%=content_tag :td, "Score"%>
+    <%=content_tag :td, "Description"%>
+    <%=content_tag :td, "Latitude, Longitude"%>
+    <%=content_tag :td, "Building"%>
+    <%=content_tag :td, "Floor"%>
+    <%=content_tag :td, "Room"%>
   <%end%>
   <%@locations.each do |location|%>
     <%=content_tag :tr do%>
       <%=content_tag :td, link_to(location.id, location)%>
+      <%=content_tag :td, location.score%>
       <%=content_tag :td, location.description%>
       <%=content_tag :td, "#{location.latitude}, #{location.longitude}"%>
       <%=content_tag :td, location.indoor_location.try(:building) || "-"%>

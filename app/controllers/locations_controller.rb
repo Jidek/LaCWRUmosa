@@ -6,7 +6,7 @@ class LocationsController < ApplicationController
 
   def show
     @location = Location.includes(:indoor_location, :ratings).find(params[:id])
-    @rating = Rating.find([session[:cas_user], params[:id]])
+    @rating = Rating.where(user_id: session[:cas_user], location_id: params[:id]).first
   end
 
   def new
