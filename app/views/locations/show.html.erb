@@ -10,6 +10,12 @@
   <%=@location.indoor_location.floor%>
   <%=@location.indoor_location.room%>
 <%end%>
-<%=tag(:br)%>
+<%=content_tag(:br)%>
 
+Score: <%=@location.score%>
+<%=tag(:br)%>
+<%=@rating.try(:positive?) ? "Upvote" : (link_to "Upvote", upvote_rating_path(@location), {method: :patch})%>
+<%=@rating.try(:negative?) ? "Downvote" : (link_to "Downvote", downvote_rating_path(@location), {method: :patch})%>
+
+<%=content_tag(:br)%>
 <%=link_to "Location List", locations_path%>

@@ -20,5 +20,12 @@ Rails.application.routes.draw do
 
   resources :invites
 
+  resources :ratings do
+    member do
+      patch :upvote
+      patch :downvote
+    end
+  end
+
   root to: 'users#feed'
 end

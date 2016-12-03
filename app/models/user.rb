@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  has_many :ratings
 
   def friends
     User.where(user_id: get_friend_ids(self.user_id))

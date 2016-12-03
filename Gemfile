@@ -50,3 +50,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'byebug'
 gem 'rubycas-client', :git => 'git://github.com/rubycas/rubycas-client.git'
 gem 'american_date'
+gem 'composite_primary_keys'

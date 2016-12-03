@@ -1,11 +1,12 @@
 class LocationsController < ApplicationController
 
   def index
-    @locations = Location.includes(:indoor_location).all
+    @locations = Location.includes(:indoor_location, :ratings).all
   end
 
   def show
-    @location = Location.find(params[:id])
+    @location = Location.includes(:indoor_location, :ratings).find(params[:id])
+    @rating = Rating.find([session[:cas_user], params[:id]])
   end
 
   def new
