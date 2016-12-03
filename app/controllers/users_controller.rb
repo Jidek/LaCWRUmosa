@@ -37,7 +37,7 @@ class UsersController < ApplicationController
     to = params[:id]
 
     if FriendRequest.where(from_user_id: from, to_user_id: to).blank?
-      request = FriendRequest.new(from_user_id: from, to_user_id: to, acceptance_status: 0)
+      request = FriendRequest.new(from_user_id: from, to_user_id: to, acceptance_status: FriendRequest.acceptance_statuses[:no_response])
       request.save
     end
 
