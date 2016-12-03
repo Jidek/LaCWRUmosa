@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     end
     member do
       get :feed
+      patch :send_friend_request
     end
   end
 
