@@ -1,24 +1,40 @@
-<%=content_tag :dl do%>
-  <%=content_tag :dt, "ID"%>
-  <%=content_tag :dd, @location.id%>
-
-  <%=content_tag :dt, "Description"%>
-  <%=content_tag :dd, @location.description%>
-
-  <%=content_tag :dt, "Coordinates"%>
-  <%=content_tag :dd, "#{@location.latitude}, #{@location.longitude}"%>
-
-  <%if @location.indoor_location.present?%>
-    <%=content_tag :dt, "Building"%>
-    <%=content_tag :dd, @location.indoor_location.building%>
-    <%=content_tag :dt, "Floor"%>
-    <%=content_tag :dd, @location.indoor_location.floor%>
-    <%=content_tag :dt, "Room"%>
-    <%=content_tag :dd, @location.indoor_location.room%>
+<%=content_tag :table, class: "key-value" do%>
+  <%=content_tag :tr do%>
+    <%=content_tag :th, "ID"%>
+    <%=content_tag :td, @location.id%>
   <%end%>
 
-  <%=content_tag :dt, "Score"%>
-  <%=content_tag :dd, @location.score%>
+  <%=content_tag :tr do%>
+    <%=content_tag :th, "Description"%>
+    <%=content_tag :td, @location.description%>
+  <%end%>
+
+  <%=content_tag :tr do%>
+    <%=content_tag :th, "Coordinates"%>
+    <%=content_tag :td, "#{@location.latitude}, #{@location.longitude}"%>
+  <%end%>
+
+  <%if @location.indoor_location.present?%>
+    <%=content_tag :tr do%>
+      <%=content_tag :th, "Building"%>
+      <%=content_tag :td, @location.indoor_location.building%>
+    <%end%>
+
+    <%=content_tag :tr do%>
+      <%=content_tag :th, "Floor"%>
+      <%=content_tag :td, @location.indoor_location.floor%>
+    <%end%>
+
+    <%=content_tag :tr do%>
+      <%=content_tag :th, "Room"%>
+      <%=content_tag :td, @location.indoor_location.room%>
+    <%end%>
+  <%end%>
+
+  <%=content_tag :tr do%>
+    <%=content_tag :th, "Score"%>
+    <%=content_tag :td, @location.score%>
+  <%end%>
 
 <%end%>
 

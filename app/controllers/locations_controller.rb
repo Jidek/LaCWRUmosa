@@ -1,7 +1,15 @@
 class LocationsController < ApplicationController
 
   def index
-    @locations = Location.includes(:indoor_location, :ratings).all
+    search = []
+    search_params = {}
+
+    if params[:description].present? && params[:description][:filter].present?
+      search << "description like :description"
+      search_params.merge! description: "%#{params[:description][:filter]}%"
+    end
+
+    @locations = Location.includes(:indoor_location, :ratings).where(search.join(' AND '), search_params)
   end
 
   def show

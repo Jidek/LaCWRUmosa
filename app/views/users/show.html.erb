@@ -1,15 +1,23 @@
-<%=content_tag :dl do%>
-  <%=content_tag :dt, "Case ID"%>
-  <%=content_tag :dd, @user.user_id%>
+<%=content_tag :table, class: "key-value" do%>
+  <%=content_tag :tr do%>
+    <%=content_tag :th, "Case ID"%>
+    <%=content_tag :td, @user.user_id%>
+  <%end%>
 
-  <%=content_tag :dt, "Nickname"%>
-  <%=content_tag :dd, @user.nickname%>
+  <%=content_tag :tr do%>
+    <%=content_tag :th, "Nickname"%>
+    <%=content_tag :td, @user.nickname%>
+  <%end%>
 
-  <%=content_tag :dt, "Graduation Year"%>
-  <%=content_tag :dd, @user.grad_year%>
+  <%=content_tag :tr do%>
+    <%=content_tag :th, "Graduation Year"%>
+    <%=content_tag :td, @user.grad_year%>
+  <%end%>
 
-  <%=content_tag :dt, "Major"%>
-  <%=content_tag :dd, @user.major%>
+  <%=content_tag :tr do%>
+    <%=content_tag :th, "Major"%>
+    <%=content_tag :td, @user.major%>
+  <%end%>
 
 <%end%>
 

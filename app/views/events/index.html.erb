@@ -8,7 +8,7 @@
   <%=submit_tag "Search", id: "search"%>
 <%end%>
 
-<%=content_tag :table do%>
+<%=content_tag :table, class: "colored" do%>
   <%=content_tag :thead do%>
     <%=content_tag :tr do %>
       <%=content_tag :th, "Time"%>
@@ -19,7 +19,7 @@
     <%@events.each do |event|%>
       <%=content_tag :tr do%>
         <%=content_tag :td, link_to(event.time, event_path(event.id))%>
-        <%=content_tag :td, link_to("Location", location_path(event.location_id))%>
+        <%=content_tag :td, link_to(event.location.description, location_path(event.location_id))%>
       <%end%>
     <%end%>
   <%end%>

@@ -86,3 +86,8 @@ table.colored td, table.colored th {
   margin: 0;
   padding: .25em 1em;
 }
+
+table.key-value th {
+  text-align: left;
+  padding-right: 1em;
+}

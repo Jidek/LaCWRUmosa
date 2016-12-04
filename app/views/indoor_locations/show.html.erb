@@ -1,10 +1,23 @@
-<%=@indoor_location.id%>
-<%=tag(:br)%>
-<%=@indoor_location.building%>
-<%=tag(:br)%>
-<%=@indoor_location.floor%>
-<%=tag(:br)%>
-<%=@indoor_location.room%>
-<%=tag(:br)%>
+<%=content_tag :table, class: "key-value" do%>
+  <%=content_tag :tr do%>
+    <%=content_tag :th, "ID"%>
+    <%=content_tag :td, @indoor_location.id%>
+  <%end%>
+
+  <%=content_tag :tr do%>
+    <%=content_tag :th, "Building"%>
+    <%=content_tag :td, @indoor_location.building%>
+  <%end%>
+
+  <%=content_tag :tr do%>
+    <%=content_tag :th, "Floor"%>
+    <%=content_tag :td, @indoor_location.floor%>
+  <%end%>
+
+  <%=content_tag :tr do%>
+    <%=content_tag :th, "Room"%>
+    <%=content_tag :td, @indoor_location.room%>
+  <%end%>
+<%end%>
 
 <%=link_to "Location List", indoor_locations_path%>
