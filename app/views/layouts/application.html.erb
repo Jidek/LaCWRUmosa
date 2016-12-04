@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>LacwrumosaApp</title>
+    <title>LaCWRUmosa</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,6 +9,11 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <%=content_tag :h1, link_to("LaCWRUmosa", root_path)%>
+    </header>
+    <article>
+      <%= yield %>
+    </article>
   </body>
 </html>
