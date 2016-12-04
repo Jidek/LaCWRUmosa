@@ -1,10 +1,14 @@
 <%=content_tag :h1, "View Event"%>
-<%=content_tag :dl do%>
-  <%=content_tag :dt, "When"%>
-  <%=content_tag :dd, @event.time%>
+<%=content_tag :table, class: "key-value" do%>
+  <%=content_tag :tr do%>
+    <%=content_tag :th, "When"%>
+    <%=content_tag :td, @event.time%>
+  <%end%>
 
-  <%=content_tag :dt, "Where"%>
-  <%=content_tag :dd, link_to(@event.location.description, location_path(@event.location.id))%>
+  <%=content_tag :tr do%>
+    <%=content_tag :th, "Where"%>
+    <%=content_tag :td, link_to(@event.location.description, location_path(@event.location.id))%>
+  <%end%>
 <%end%>
 
 <%=link_to "Edit", edit_event_path(@event)%>

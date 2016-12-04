@@ -1,6 +1,6 @@
-<%=content_tag :table do%>
+<%=content_tag :table, class: "key-value" do%>
   <%=content_tag :tr do%>
-    <%=content_tag :td do%>
+    <%=content_tag :th do%>
       <%=form.label :building, "Building:"%>
     <%end%>
     <%=content_tag :td do%>
@@ -8,7 +8,7 @@
     <%end%>
   <%end%>
   <%=content_tag :tr do%>
-    <%=content_tag :td do%>
+    <%=content_tag :th do%>
       <%=form.label :floor, "Floor:"%>
     <%end%>
     <%=content_tag :td do%>
@@ -16,7 +16,7 @@
     <%end%>
   <%end%>
   <%=content_tag :tr do%>
-    <%=content_tag :td do%>
+    <%=content_tag :th do%>
       <%=form.label :room, "Room:"%>
     <%end%>
     <%=content_tag :td do%>

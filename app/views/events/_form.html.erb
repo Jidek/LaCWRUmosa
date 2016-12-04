@@ -1,7 +1,7 @@
-<%=content_tag :table do%>
+<%=content_tag :table, class: "key-value" do%>
 
   <%=content_tag :tr do%>
-    <%=content_tag :td do%>
+    <%=content_tag :th do%>
       <%=form.label :time, "Time:"%>
     <%end%>
     <%=content_tag :td do%>
@@ -10,7 +10,7 @@
   <%end%>
 
   <%=content_tag :tr do%>
-    <%=content_tag :td do%>
+    <%=content_tag :th do%>
       <%=form.label :location_id, "Location ID:"%>
     <%end%>
     <%=content_tag :td do%>

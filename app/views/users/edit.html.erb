@@ -1,16 +1,16 @@
 <%=content_tag :h1, "Edit #{@user.user_id}"%>
 <%= form_for(@user) do |form| %>
-  <%=content_tag :table do%>
+  <%=content_tag :table, class: "key-value" do%>
     <%=content_tag :tr do%>
-      <%=content_tag :td do%>
-        <%=form.label :nickname, "nickname:"%>
+      <%=content_tag :th do%>
+        <%=form.label :nickname, "Nickname:"%>
       <%end%>
       <%=content_tag :td do%>
         <%=form.text_field :nickname%>
       <%end%>
     <%end%>
     <%=content_tag :tr do%>
-      <%=content_tag :td do%>
+      <%=content_tag :th do%>
         <%=form.label :grad_year, "Graduation Year:"%>
       <%end%>
       <%=content_tag :td do%>
@@ -18,8 +18,8 @@
       <%end%>
     <%end%>
     <%=content_tag :tr do%>
-      <%=content_tag :td do%>
-        <%=form.label :major, "major:"%>
+      <%=content_tag :th do%>
+        <%=form.label :major, "Major:"%>
       <%end%>
       <%=content_tag :td do%>
         <%=form.text_field :major%>

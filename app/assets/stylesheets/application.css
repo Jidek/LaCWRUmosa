@@ -87,18 +87,7 @@ table.colored td, table.colored th {
   padding: .25em 1em;
 }
 
-dl {
-  overflow: hidden;
-}
-dt {
-  clear: both;
-  float: left;
-  width: 6em;
-  font-weight: 700;
-}
-dt:after {
-  content: ":";
-}
-dd {
-  margin-left: 6.5em;
+table.key-value th {
+  text-align: left;
+  padding-right: 1em;
 }
