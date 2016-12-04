@@ -1,11 +1,19 @@
-<%=@user.user_id%>
-<%=tag(:br)%>
-<%=@user.nickname%>
-<%=tag(:br)%>
-<%=@user.grad_year%>
-<%=tag(:br)%>
-<%=@user.major%>
-<%=tag(:br)%>
+<%=content_tag :dl do%>
+  <%=content_tag :dt, "Case ID"%>
+  <%=content_tag :dd, @user.user_id%>
+
+  <%=content_tag :dt, "Nickname"%>
+  <%=content_tag :dd, @user.nickname%>
+
+  <%=content_tag :dt, "Graduation Year"%>
+  <%=content_tag :dd, @user.grad_year%>
+
+  <%=content_tag :dt, "Major"%>
+  <%=content_tag :dd, @user.major%>
+
+<%end%>
+
+
 
 <% if @request.blank? && session[:cas_user] != @user.id %>
   <%=link_to "Send friend request", send_friend_request_user_url(@user), {method: :patch} %>
