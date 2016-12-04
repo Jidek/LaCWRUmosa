@@ -13,3 +13,57 @@
  *= require_tree .
  *= require_self
  */
+
+ @import url(//fonts.googleapis.com/css?family=Titillium+Web:400,700);
+
+html,textarea{font:1em/1.618 "Titillium Web","Helvetica Neue","Arial Unicode MS",Arial,sans-serif}
+
+html {
+  background: #FFF;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background: #0A304E;
+  color: #FFF;
+  text-align: center;
+  margin: 0 0 1.5em;
+  padding: 1em;
+}
+
+header h1 {
+  margin: 0;
+}
+
+header a {
+  color: #FFF;
+  text-decoration: none;
+}
+
+header a:hover {
+  text-decoration: underline;
+}
+
+article {
+  max-width: 40em;
+  margin: 0 auto;
+  padding:
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 400;
+}
+
+a {
+  color: #1368AB;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
