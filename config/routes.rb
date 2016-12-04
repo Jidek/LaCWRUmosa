@@ -32,7 +32,12 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :invites
+  resources :invites do
+    member do
+      patch :accept
+      patch :decline
+    end
+  end
 
   resources :ratings do
     member do
