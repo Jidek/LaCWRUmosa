@@ -2,6 +2,10 @@ class Location < ActiveRecord::Base
   belongs_to :indoor_location, optional: true
   has_many :ratings
 
+  def <=>(second_location)
+    self.score <=> second_location.score
+  end
+
   def score
     self.ratings.pluck(:rating).sum
   end
