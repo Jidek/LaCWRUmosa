@@ -10,7 +10,33 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.all
+
+    search = []
+    search_params = []
+
+    if params[:user_id].present? && params[:user_id][:filter].present?
+      search << "user_id like ?"
+      search_params << "%#{params[:user_id][:filter]}%"
+    end
+
+    if params[:nickname].present? && params[:nickname][:filter].present?
+      search << "nickname like ?"
+      search_params << "%#{params[:nickname][:filter]}%"
+    end
+
+    if params[:grad_year].present? && params[:grad_year][:filter].present?
+      search << "grad_year like ?"
+      search_params << "%#{params[:grad_year][:filter]}%"
+    end
+
+    if params[:major].present? && params[:major][:filter].present?
+      search << "major like ?"
+      search_params << "%#{params[:major][:filter]}%"
+    end
+
+    byebug
+
+    @users = User.where(search.join(' AND '), search_params)
   end
 
   def show
