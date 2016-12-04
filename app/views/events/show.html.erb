@@ -4,7 +4,7 @@
   <%=content_tag :dd, @event.time%>
 
   <%=content_tag :dt, "Where"%>
-  <%=content_tag :dd, @event.location_id%>
+  <%=content_tag :dd, link_to(@event.location.description, location_path(@event.location.id))%>
 <%end%>
 
 <%=link_to "Edit", edit_event_path(@event)%>
