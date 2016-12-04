@@ -1,3 +1,19 @@
+<%=form_tag users_path, method: :get do%>
+  <%=label_tag :user_id_filter, "User ID: "%>
+  <%=text_field :user_id, :filter, value: params[:user_id][:filter]%>
+
+  <%=label_tag :nickname_filter, "Nickname: "%>
+  <%=text_field :nickname, :filter, value: params[:nickname][:filter]%>
+
+  <%=label_tag :grad_year_filter, "Graduation Year: "%>
+  <%=text_field :grad_year, :filter, value: params[:grad_year][:filter]%>
+
+  <%=label_tag :major_filter, "Major: "%>
+  <%=text_field :major, :filter, value: params[:major][:filter]%>
+
+  <%=submit_tag "Search", id: "search"%>
+<%end%>
+
 <%=content_tag :table do%>
   <%@users.each do |user|%>
     <%=content_tag :tr do%>
