@@ -5,7 +5,7 @@
       <%=form.label :time, "Time:"%>
     <%end%>
     <%=content_tag :td do%>
-      <%=form.text_field :time%>
+      <%=form.text_field :time, id: "datetimepicker"%>
     <%end%>
   <%end%>
 
@@ -17,4 +17,10 @@
       <%=form.select :location_id, options_for_select(Location.selectable_list, @event.location_id), {include_blank: true}%>
     <%end%>
   <%end%>
+<%end%>
+
+<%=javascript_tag do%>
+
+$('#datetimepicker').datetimepicker();
+
 <%end%>
