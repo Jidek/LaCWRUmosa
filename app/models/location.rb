@@ -8,4 +8,10 @@ class Location < ActiveRecord::Base
     return score
   end
 
+  def self.selectable_list
+    Location.all.map do |location|
+       ["#{location.description} (#{location.latitude}, #{location.longitude})", location.id]
+    end
+  end
+
 end

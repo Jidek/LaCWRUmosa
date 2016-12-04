@@ -14,7 +14,7 @@
       <%=form.label :location_id, "Location ID:"%>
     <%end%>
     <%=content_tag :td do%>
-      <%=form.text_field :location_id%>
+      <%=form.select :location_id, options_for_select(Location.selectable_list, @event.location_id), {include_blank: true}%>
     <%end%>
   <%end%>
 <%end%>
