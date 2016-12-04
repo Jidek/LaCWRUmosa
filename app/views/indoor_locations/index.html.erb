@@ -1,6 +1,20 @@
+<%=form_tag indoor_locations_path, method: :get do%>
+  <%=label_tag :building_filter, "Builiding: "%>
+  <%=text_field :building, :filter, value: params[:building].try(:[], :filter)%>
+
+  <%=label_tag :floor_filter, "Floor: "%>
+  <%=text_field :floor, :filter, value: params[:floor].try(:[], :filter)%>
+
+  <%=label_tag :room_filter, "Room: "%>
+  <%=text_field :room, :filter, value: params[:room].try(:[], :filter)%>
+
+  <%=submit_tag "Search", id: "search"%>
+<%end%>
+
 <%=content_tag :table, class: "colored" do%>
   <%=content_tag :thead do%>
     <%=content_tag :tr do%>
+      <%=content_tag :th, "Indoor Location ID"%>
       <%=content_tag :th, "Building"%>
       <%=content_tag :th, "Floor"%>
       <%=content_tag :th, "Room"%>
