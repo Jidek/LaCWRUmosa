@@ -74,6 +74,16 @@ class LocationsController < ApplicationController
     redirect_to location_url(params[:id])
   end
 
+  def near_me
+    @latitude = params[:latitude].to_f
+    @longitude = params[:longitude].to_f
+
+    if @latitude.present? and @longitude.present?
+      point = [@latitude, @longitude]
+      @locations = Location.near(point, 500, order: false).to_a.sort
+    end
+  end
+
   private
 
   def location_params
