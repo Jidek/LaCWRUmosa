@@ -40,12 +40,12 @@ class EventsController < ApplicationController
     event = params[:id]
     rsvp = Invite.rsvps[:no_response]
     user = params[:case_id]
-    byebug
 
     if Invite.where(user_id: user, event_id: event).blank?
       request = Invite.new(user_id: user, event_id: event, rsvp: rsvp)
       request.save
     end
+    redirect_to :back
   end
 
   private
