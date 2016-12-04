@@ -1,0 +1,59 @@
+<%=content_tag :h1, "Best Locations Near Me" %>
+
+<%=content_tag :div, id: "status" do%>
+<%end%>
+
+<%if @locations.present?%>
+  <%=content_tag :table, class: "colored" do%>
+    <%=content_tag :thead do%>
+      <%=content_tag :tr do%>
+        <%=content_tag :th, "Location ID"%>
+        <%=content_tag :th, "Score"%>
+        <%=content_tag :th, "Description"%>
+        <%=content_tag :th, "Distance"%>
+        <%=content_tag :th, "Building"%>
+        <%=content_tag :th, "Floor"%>
+        <%=content_tag :th, "Room"%>
+      <%end%>
+    <%end%>
+    <%=content_tag :tbody do%>
+      <%@locations.each do |location|%>
+        <%=content_tag :tr do%>
+          <%=content_tag :td, link_to(location.id, location)%>
+          <%=content_tag :td, location.score%>
+          <%=content_tag :td, location.description%>
+          <%=content_tag :td, location.distance%>
+          <%=content_tag :td, location.indoor_location.try(:building) || "-"%>
+          <%=content_tag :td, location.indoor_location.try(:floor) || "-"%>
+          <%=content_tag :td, location.indoor_location.try(:room) || "-"%>
+          <%if session[:cas_user] == location.creator_id%>
+            <%=content_tag :td, link_to("edit", edit_location_path(location))%>
+          <%end%>
+        <%end%>
+      <%end%>
+    <%end%>
+  <%end%>
+<%end%>
+
+<%=javascript_tag do%>
+  function applyCoordinates(position) {
+    var lat = position.coords.latitude;
+    var long = position.coords.longitude;
+    var url = "<%=escape_javascript(near_me_locations_path)%>" + "?latitude=" + lat + "&longitude=" + long;
+    window.location.href = url;
+  }
+
+  function handleError(error) {
+  	if (error.code == 1)
+  		var message = "";
+  	else {
+  		var message = "There was a problem finding your location.";
+  	}
+  	document.getElementById("geolocation").innerHTML=message;
+  }
+
+  <%if params[:latitude].blank? || params[:longitude].blank?%>
+    navigator.geolocation.getCurrentPosition(applyCoordinates, handleError, {maximumAge: 30000});
+  <%end%>
+
+<%end%>
