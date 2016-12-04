@@ -86,3 +86,19 @@ table.colored td, table.colored th {
   margin: 0;
   padding: .25em 1em;
 }
+
+dl {
+  overflow: hidden;
+}
+dt {
+  clear: both;
+  float: left;
+  width: 6em;
+  font-weight: 700;
+}
+dt:after {
+  content: ":";
+}
+dd {
+  margin-left: 6.5em;
+}
