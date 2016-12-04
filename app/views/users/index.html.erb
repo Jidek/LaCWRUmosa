@@ -1,15 +1,15 @@
 <%=form_tag users_path, method: :get do%>
   <%=label_tag :user_id_filter, "User ID: "%>
-  <%=text_field :user_id, :filter, value: params[:user_id][:filter]%>
+  <%=text_field :user_id, :filter, value: params[:user_id].try(:[], :filter)%>
 
   <%=label_tag :nickname_filter, "Nickname: "%>
-  <%=text_field :nickname, :filter, value: params[:nickname][:filter]%>
+  <%=text_field :nickname, :filter, value: params[:nickname].try(:[], :filter)%>
 
   <%=label_tag :grad_year_filter, "Graduation Year: "%>
-  <%=text_field :grad_year, :filter, value: params[:grad_year][:filter]%>
+  <%=text_field :grad_year, :filter, value: params[:grad_year].try(:[], :filter)%>
 
   <%=label_tag :major_filter, "Major: "%>
-  <%=text_field :major, :filter, value: params[:major][:filter]%>
+  <%=text_field :major, :filter, value: params[:major].try(:[], :filter)%>
 
   <%=submit_tag "Search", id: "search"%>
 <%end%>
