@@ -8,7 +8,7 @@ class Rating < ActiveRecord::Base
   end
 
   def negative?
-    self.rating == 0
+    self.rating == -1
   end
 
 end

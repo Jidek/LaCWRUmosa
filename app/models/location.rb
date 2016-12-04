@@ -5,10 +5,12 @@ class Location < ActiveRecord::Base
   reverse_geocoded_by :latitude, :longitude
   after_validation :reverse_geocode  # auto-fetch address
 
+  def <=>(second_location)
+    self.score <=> second_location.score
+  end
+
   def score
-    score = 0
-    self.ratings.each{|rating| rating.rating? ? score += 1 : score -= 1}
-    return score
+    self.ratings.pluck(:rating).sum
   end
 
   def self.selectable_list

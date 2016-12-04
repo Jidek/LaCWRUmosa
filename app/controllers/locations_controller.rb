@@ -3,13 +3,36 @@ class LocationsController < ApplicationController
   def index
     search = []
     search_params = {}
+    indoor_search = false
 
     if params[:description].present? && params[:description][:filter].present?
       search << "description like :description"
       search_params.merge! description: "%#{params[:description][:filter]}%"
     end
 
-    @locations = Location.includes(:indoor_location, :ratings).where(search.join(' AND '), search_params)
+    if params[:building].present? && params[:building][:filter].present?
+      search << "building like :building"
+      search_params.merge! building: "%#{params[:building][:filter]}%"
+      indoor_search = true
+    end
+
+    if params[:floor].present? && params[:floor][:filter].present?
+      search << "floor like :floor"
+      search_params.merge! floor: "%#{params[:floor][:filter]}%"
+      indoor_search = true
+    end
+
+    if params[:room].present? && params[:room][:filter].present?
+      search << "room like :room"
+      search_params.merge! room: "%#{params[:room][:filter]}%"
+      indoor_search = true
+    end
+
+    if indoor_search
+      @locations = Location.joins(:indoor_location).includes(:ratings).where(search.join(' AND '), search_params)
+    else
+      @locations = Location.includes(:ratings).where(search.join(' AND '), search_params)
+    end
   end
 
   def show
