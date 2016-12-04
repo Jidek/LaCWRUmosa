@@ -15,7 +15,11 @@ Rails.application.routes.draw do
 
   resources :check_ins
 
-  resources :events
+  resources :events do
+    member do
+      post :send_event_invite
+    end
+  end
 
   resources :friend_requests do
     member do

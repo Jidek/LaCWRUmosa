@@ -10,4 +10,24 @@
 <%=link_to "Edit", edit_event_path(@event)%>
 <%=tag(:br)%>
 
+<%=content_tag :h3, "Users Going"%>
+<%=content_tag :table do%>
+  <%@invites.each do |invite|%>
+    <%=content_tag :tr do%>
+      <%=content_tag :td, link_to(invite.user.nickname || invite.user_id, user_path(invite.user_id))%>
+    <%end%>
+  <%end%>
+<%end%>
+
+<%=tag(:br)%>
+<%=tag(:br)%>
+
+<%=content_tag :h3, "Invite User by Case ID"%>
+<%= form_tag({:controller=>"events", :action=>"send_event_invite"}, method: :post) do %>
+  <%= text_field_tag(:case_id) %>
+  <%= hidden_field_tag :event, @event%>
+  <%= submit_tag 'Invite' %>
+<% end %>
+<%=tag(:br)%>
+
 <%=link_to "Events list", events_path%>

@@ -6,6 +6,7 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+    @invites = Invite.where(event_id: params[:id], rsvp: Invite.rsvps[:accepted])
   end
 
   def edit
@@ -32,6 +33,18 @@ class EventsController < ApplicationController
       redirect_to event_url(@event)
     else
       render action: :new
+    end
+  end
+
+  def send_event_invite
+    event = params[:id]
+    rsvp = Invite.rsvps[:no_response]
+    user = params[:case_id]
+    byebug
+
+    if Invite.where(user_id: user, event_id: event).blank?
+      request = Invite.new(user_id: user, event_id: event, rsvp: rsvp)
+      request.save
     end
   end
 
