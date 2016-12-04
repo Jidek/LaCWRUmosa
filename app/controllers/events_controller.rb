@@ -1,7 +1,22 @@
 class EventsController < ApplicationController
 
   def index
-    @events = Event.all
+    search = []
+    search_params = {}
+
+    if params[:time].present? && params[:time][:filter].present?
+      search << "time < :time"
+      search_params.merge! time: "#{params[:time][:filter].to_f.hours.from_now}"
+      search << "time > :time_now"
+      search_params.merge! time_now: "#{Time.now}"
+    end
+
+    if params[:location].present? && params[:location][:filter].present?
+      search << "description like :description"
+      search_params.merge! description: "%#{params[:location][:filter]}%"
+    end
+
+    @events = Event.joins(:location).where(search.join(' AND '), search_params)
   end
 
   def show
