@@ -1,12 +1,12 @@
 <%=content_tag :table do%>
   <%=content_tag :tr do%>
-    <%=content_tag :td, "Location id"%>
-    <%=content_tag :td, "Score"%>
-    <%=content_tag :td, "Description"%>
-    <%=content_tag :td, "Latitude, Longitude"%>
-    <%=content_tag :td, "Building"%>
-    <%=content_tag :td, "Floor"%>
-    <%=content_tag :td, "Room"%>
+    <%=content_tag :th, "Location id"%>
+    <%=content_tag :th, "Score"%>
+    <%=content_tag :th, "Description"%>
+    <%=content_tag :th, "Latitude, Longitude"%>
+    <%=content_tag :th, "Building"%>
+    <%=content_tag :th, "Floor"%>
+    <%=content_tag :th, "Room"%>
   <%end%>
   <%@locations.each do |location|%>
     <%=content_tag :tr do%>

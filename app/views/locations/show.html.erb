@@ -1,19 +1,28 @@
-<%=@location.id%>
-<%=tag(:br)%>
-<%=@location.description%>
-<%=tag(:br)%>
-<%=@location.latitude%>,
-<%=@location.longitude%>
-<%if @location.indoor_location.present?%>
-  <%=tag(:br)%>
-  <%=@location.indoor_location.building%>
-  <%=@location.indoor_location.floor%>
-  <%=@location.indoor_location.room%>
-<%end%>
-<%=content_tag(:br)%>
+<%=content_tag :dl do%>
+  <%=content_tag :dt, "ID"%>
+  <%=content_tag :dd, @location.id%>
 
-Score: <%=@location.score%>
-<%=tag(:br)%>
+  <%=content_tag :dt, "Description"%>
+  <%=content_tag :dd, @location.description%>
+
+  <%=content_tag :dt, "Coordinates"%>
+  <%=content_tag :dd, "#{@location.latitude}, #{@location.longitude}"%>
+
+  <%if @location.indoor_location.present?%>
+    <%=content_tag :dt, "Building"%>
+    <%=content_tag :dd, @location.indoor_location.building%>
+    <%=content_tag :dt, "Floor"%>
+    <%=content_tag :dd, @location.indoor_location.floor%>
+    <%=content_tag :dt, "Room"%>
+    <%=content_tag :dd, @location.indoor_location.room%>
+  <%end%>
+
+  <%=content_tag :dt, "Score"%>
+  <%=content_tag :dd, @location.score%>
+
+<%end%>
+
+
 <%=@rating.try(:positive?) ? "Upvote" : (link_to "Upvote", upvote_rating_path(@location), {method: :patch})%>
 <%=@rating.try(:negative?) ? "Downvote" : (link_to "Downvote", downvote_rating_path(@location), {method: :patch})%>
 
