@@ -3,9 +3,7 @@ class Location < ActiveRecord::Base
   has_many :ratings
 
   def score
-    score = 0
-    self.ratings.each{|rating| rating.rating? ? score += 1 : score -= 1}
-    return score
+    self.ratings.pluck(:rating).sum
   end
 
   def self.selectable_list
