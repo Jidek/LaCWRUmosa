@@ -1,14 +1,18 @@
-<%=content_tag :table do%>
-  <%=content_tag :tr do%>
-    <%=content_tag :th, "User" %>
-    <%=content_tag :th, "Location" %>
-    <%=content_tag :th, "Time" %>
-  <%end%>
-  <%@CheckIns.each do |check_in|%>
+<%=content_tag :table, class: "colored" do%>
+  <%=content_tag :thead do%>
     <%=content_tag :tr do%>
-      <%=content_tag :td, link_to(check_in.user.nickname || check_in.user_id, user_path(check_in.user))%>
-      <%=content_tag :td, link_to(check_in.location.description, location_path(check_in.location))%>
-      <%=content_tag :td, check_in.time%>
+      <%=content_tag :th, "User" %>
+      <%=content_tag :th, "Location" %>
+      <%=content_tag :th, "Time" %>
+    <%end%>
+  <%end%>
+  <%=content_tag :tbody do%>
+    <%@CheckIns.each do |check_in|%>
+      <%=content_tag :tr do%>
+        <%=content_tag :td, link_to(check_in.user.nickname || check_in.user_id, user_path(check_in.user))%>
+        <%=content_tag :td, link_to(check_in.location.description, location_path(check_in.location))%>
+        <%=content_tag :td, check_in.time%>
+      <%end%>
     <%end%>
   <%end%>
 <%end%>

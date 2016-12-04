@@ -67,3 +67,22 @@ a {
 a:hover {
   text-decoration: underline;
 }
+
+table.colored {
+  border-collapse: collapse;
+}
+table.colored thead th {
+  font-weight: 400;
+  background: #0A304E;
+  color: #FFF;
+  text-align: left;
+}
+table.colored tbody tr {
+  background: #EEE;
+  border-bottom: .125em solid #FFF;
+}
+
+table.colored td, table.colored th {
+  margin: 0;
+  padding: .25em 1em;
+}

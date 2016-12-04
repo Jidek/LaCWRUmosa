@@ -1,21 +1,22 @@
-<%=content_tag :table do%>
-  <%=content_tag :tr do%>
-    <%=content_tag :td, "Building"%>
-    <%=content_tag :td, "Floor"%>
-    <%=content_tag :td, "Room"%>
-  <%end%>
-  <%@indoor_locations.each do |location|%>
+<%=content_tag :table, class: "colored" do%>
+  <%=content_tag :thead do%>
     <%=content_tag :tr do%>
-      <%=content_tag :td, link_to(location.id, location)%>
-      <%=content_tag :td, location.building%>
-      <%=content_tag :td, location.floor%>
-      <%=content_tag :td, location.room%>
-      <%=content_tag :td, link_to("edit", edit_indoor_location_path(location))%>
+      <%=content_tag :th, "Building"%>
+      <%=content_tag :th, "Floor"%>
+      <%=content_tag :th, "Room"%>
     <%end%>
   <%end%>
-  <%=content_tag :tr do%>
-    <%=content_tag :td do%>
-      <%=link_to "New Indoor Location", new_indoor_location_path%>
+  <%=content_tag :tbody do%>
+    <%@indoor_locations.each do |location|%>
+      <%=content_tag :tr do%>
+        <%=content_tag :td, link_to(location.id, location)%>
+        <%=content_tag :td, location.building%>
+        <%=content_tag :td, location.floor%>
+        <%=content_tag :td, location.room%>
+        <%=content_tag :td, link_to("edit", edit_indoor_location_path(location))%>
+      <%end%>
     <%end%>
   <%end%>
 <%end%>
+
+<%=link_to "New Indoor Location", new_indoor_location_path%>

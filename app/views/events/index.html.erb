@@ -1,12 +1,16 @@
 <%=content_tag :table do%>
-  <%=content_tag :tr do %>
-    <%=content_tag :th, "Time"%>
-    <%=content_tag :th, "Location"%>
+  <%=content_tag :thead do%>
+    <%=content_tag :tr do %>
+      <%=content_tag :th, "Time"%>
+      <%=content_tag :th, "Location"%>
+    <%end%>
   <%end%>
-  <%@events.each do |event|%>
-    <%=content_tag :tr do%>
-      <%=content_tag :td, link_to(event.time, event_path(event.id))%>
-      <%=content_tag :td, link_to("Location", location_path(event.location_id))%>
+  <%=content_tag :tbody do%>
+    <%@events.each do |event|%>
+      <%=content_tag :tr do%>
+        <%=content_tag :td, link_to(event.time, event_path(event.id))%>
+        <%=content_tag :td, link_to("Location", location_path(event.location_id))%>
+      <%end%>
     <%end%>
   <%end%>
 <%end%>

@@ -1,30 +1,31 @@
-<%=content_tag :table do%>
-  <%=content_tag :tr do%>
-    <%=content_tag :th, "Location id"%>
-    <%=content_tag :th, "Score"%>
-    <%=content_tag :th, "Description"%>
-    <%=content_tag :th, "Latitude, Longitude"%>
-    <%=content_tag :th, "Building"%>
-    <%=content_tag :th, "Floor"%>
-    <%=content_tag :th, "Room"%>
-  <%end%>
-  <%@locations.each do |location|%>
+<%=content_tag :table, class: "colored" do%>
+  <%=content_tag :thead do%>
     <%=content_tag :tr do%>
-      <%=content_tag :td, link_to(location.id, location)%>
-      <%=content_tag :td, location.score%>
-      <%=content_tag :td, location.description%>
-      <%=content_tag :td, "#{location.latitude}, #{location.longitude}"%>
-      <%=content_tag :td, location.indoor_location.try(:building) || "-"%>
-      <%=content_tag :td, location.indoor_location.try(:floor) || "-"%>
-      <%=content_tag :td, location.indoor_location.try(:room) || "-"%>
-      <%if session[:cas_user] == location.creator_id%>
-        <%=content_tag :td, link_to("edit", edit_location_path(location))%>
+      <%=content_tag :th, "Location id"%>
+      <%=content_tag :th, "Score"%>
+      <%=content_tag :th, "Description"%>
+      <%=content_tag :th, "Latitude, Longitude"%>
+      <%=content_tag :th, "Building"%>
+      <%=content_tag :th, "Floor"%>
+      <%=content_tag :th, "Room"%>
+    <%end%>
+  <%end%>
+  <%=content_tag :tbody do%>
+    <%@locations.each do |location|%>
+      <%=content_tag :tr do%>
+        <%=content_tag :td, link_to(location.id, location)%>
+        <%=content_tag :td, location.score%>
+        <%=content_tag :td, location.description%>
+        <%=content_tag :td, "#{location.latitude}, #{location.longitude}"%>
+        <%=content_tag :td, location.indoor_location.try(:building) || "-"%>
+        <%=content_tag :td, location.indoor_location.try(:floor) || "-"%>
+        <%=content_tag :td, location.indoor_location.try(:room) || "-"%>
+        <%if session[:cas_user] == location.creator_id%>
+          <%=content_tag :td, link_to("edit", edit_location_path(location))%>
+        <%end%>
       <%end%>
     <%end%>
   <%end%>
-  <%=content_tag :tr do%>
-    <%=content_tag :td do%>
-      <%=link_to "New Location", new_location_path%>
-    <%end%>
-  <%end%>
 <%end%>
+
+<%=link_to "New Location", new_location_path%>
