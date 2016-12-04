@@ -1,3 +1,10 @@
+<%=form_tag locations_path, method: :get do%>
+  <%=label_tag :description_filter, "Description: "%>
+  <%=text_field :description, :filter, value: params[:description].try(:[], :filter)%>
+
+  <%=submit_tag "Search", id: "search"%>
+<%end%>
+
 <%=content_tag :table, class: "colored" do%>
   <%=content_tag :thead do%>
     <%=content_tag :tr do%>
