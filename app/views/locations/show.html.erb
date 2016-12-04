@@ -18,4 +18,7 @@ Score: <%=@location.score%>
 <%=@rating.try(:negative?) ? "Downvote" : (link_to "Downvote", downvote_rating_path(@location), {method: :patch})%>
 
 <%=content_tag(:br)%>
+<%=link_to("Check In", check_in_location_path(@location), {method: :patch})%>
+
+<%=content_tag(:br)%>
 <%=link_to "Location List", locations_path%>
