@@ -11,7 +11,7 @@ class RatingsController < ApplicationController
   def downvote
     @rating = Rating.where(user_id: session[:cas_user], location_id: params[:id]).first
     @rating = Rating.new(user_id: session[:cas_user], location_id: params[:id]) if @rating.blank?
-    @rating.rating = 0
+    @rating.rating = -1
     @rating.save
     redirect_to location_url(params[:id])
   end
