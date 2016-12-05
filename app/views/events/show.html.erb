@@ -31,6 +31,9 @@
   <%= text_field_tag(:case_id) %>
   <%= hidden_field_tag :event, @event%>
   <%= submit_tag 'Invite' %>
+  <%if flash[:notice]%>
+    <%=content_tag :th, "User does not exist"%>
+  <%end%>
 <% end %>
 <%=tag(:br)%>
 

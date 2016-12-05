@@ -60,10 +60,15 @@ class EventsController < ApplicationController
     rsvp = Invite.rsvps[:no_response]
     user = params[:case_id]
 
-    if Invite.where(user_id: user, event_id: event).blank?
+    users = User.where(user_id: user)
+
+    if Invite.where(user_id: user, event_id: event).blank? && !users.blank?
       request = Invite.new(user_id: user, event_id: event, rsvp: rsvp)
       request.save
+    elsif(users.blank?)
+      flash[:notice] = 'No user with that IDy'
     end
+
     redirect_to :back
   end
 
