@@ -16,7 +16,11 @@ class EventsController < ApplicationController
       search_params.merge! description: "%#{params[:location][:filter]}%"
     end
 
-    @events = Event.joins(:location).where(search.join(' AND '), search_params)
+    if params[:only_rsvp].present? && params[:only_rsvp]
+      @events = Event.joins(:invite).where('invites.user_id' => session[:cas_user], 'invites.rsvp' => Invite.rsvps[:accepted]).joins(:location).where(search.join(' AND '), search_params).order(time: :desc)
+    else
+      @events = Event.joins(:location).where(search.join(' AND '), search_params)
+    end
   end
 
   def show

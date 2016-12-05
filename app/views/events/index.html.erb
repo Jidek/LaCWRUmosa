@@ -5,6 +5,9 @@
   <%=label_tag :location_filter, "Location Description: "%>
   <%=text_field :location, :filter, value: params[:location].try(:[], :filter)%>
 
+  <%=label_tag :location_filter, "Only Events I've RSVPed to: "%>
+  <%=check_box_tag :only_rsvp, 1, params[:only_rsvp] %>
+
   <%=submit_tag "Search", id: "search"%>
 <%end%>
 
