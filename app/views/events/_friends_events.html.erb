@@ -3,11 +3,11 @@
   <%@events.each do |event|%>
     <%=content_tag :tr do%>
       <%=content_tag :td do%>
-        <%=create_verbose_name_list(event)%>
-        <%="going to "%>
-        <%=link_to(event.location.description, location_path(event.location))%>
-        <%=" at "%>
-        <%=event.time.strftime("%l:%M%p on %m/%d/%Y")%>
+        <%=(create_verbose_name_list(event) +
+           " going to " +
+           link_to(event.location.description, location_path(event.location)) +
+           " at " +
+           event.time.strftime("%l:%M%p on %m/%d/%Y")).html_safe%>
       <%end%>
     <%end%>
   <%end%>
