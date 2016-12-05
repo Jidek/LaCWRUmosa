@@ -3,7 +3,6 @@ class Location < ActiveRecord::Base
   has_many :ratings
 
   reverse_geocoded_by :latitude, :longitude
-  after_validation :reverse_geocode  # auto-fetch address
 
   def <=>(second_location)
     self.score <=> second_location.score
