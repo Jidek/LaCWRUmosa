@@ -12,15 +12,17 @@
   <%=content_tag :tbody do%>
     <%@Invites.each do |invite|%>
       <%=content_tag :tr do%>
-        <%if (invite.rsvp != "rejected")%>
-          <%=content_tag :td, link_to(invite.event.location.description, location_path(invite.event.location))%>
-          <%=content_tag :td, link_to(invite.event.time, event_path(invite.event))%>
-          <%if (invite.rsvp != "accepted")%>
-            <%=content_tag :td, link_to("Accept", accept_invite_path({id:0, user_id: session[:cas_user], event_id: invite.event_id}), {method: :patch})%>
-            <%=content_tag :td, link_to("Decline", decline_invite_path({id:0, user_id: session[:cas_user], event_id: invite.event_id}), {method: :patch})%>
-          <%else%>
-            <%=content_tag :td, "Going"%>
-          <%end%>
+        <%=content_tag :td, link_to(invite.event.location.description, location_path(invite.event.location))%>
+        <%=content_tag :td, link_to(invite.event.time, event_path(invite.event))%>
+        <%if invite.accepted?%>
+          <%=content_tag :td, "Going"%>
+        <%else%>
+          <%=content_tag :td, link_to("Going", accept_invite_path({id:0, user_id: session[:cas_user], event_id: invite.event_id}), {method: :patch})%>
+        <%end%>
+        <%if invite.rejected?%>
+          <%=content_tag :td, "Not Going"%>
+        <%else%>
+          <%=content_tag :td, link_to("Not Going", decline_invite_path({id:0, user_id: session[:cas_user], event_id: invite.event_id}), {method: :patch})%>
         <%end%>
       <%end%>
     <%end%>
