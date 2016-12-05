@@ -1,11 +1,13 @@
 <!-- The following partial is being organized into a table to allow for CSSing per row. -->
 <%=content_tag :table, class: "colored" do%>
   <%@events.each do |event|%>
-    <%event.invite.each do |invite|%>
-      <%=content_tag :tr do%>
-        <%=content_tag :td do%>
-          <%=event.time.strftime("#{invite.user.name} is going to #{event.location.description} at %l:%M%p on %m/%d/%Y")%>
-        <%end%>
+    <%=content_tag :tr do%>
+      <%=content_tag :td do%>
+        <%=create_verbose_name_list(event)%>
+        <%="going to "%>
+        <%=link_to(event.location.description, location_path(event.location))%>
+        <%=" at "%>
+        <%=event.time.strftime("%l:%M%p on %m/%d/%Y")%>
       <%end%>
     <%end%>
   <%end%>
