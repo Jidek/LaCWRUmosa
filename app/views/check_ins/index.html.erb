@@ -9,7 +9,7 @@
   <%=content_tag :tbody do%>
     <%@CheckIns.each do |check_in|%>
       <%=content_tag :tr do%>
-        <%=content_tag :td, link_to(check_in.user.nickname || check_in.user_id, user_path(check_in.user))%>
+        <%=content_tag :td, link_to(check_in.user.name, user_path(check_in.user))%>
         <%=content_tag :td, link_to(check_in.location.description, location_path(check_in.location))%>
         <%=content_tag :td, check_in.time%>
       <%end%>

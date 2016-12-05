@@ -2,11 +2,11 @@ class UsersController < ApplicationController
 
   def feed
     @user = session[:cas_user]
+    @check_ins = CheckIn.includes(:user, :location).where(user_id: User.where(user_id: session[:cas_user]).first.friends)
   end
 
   def friends
-    me = User.where(user_id: session[:cas_user]).first
-    @friends = me.friends
+    @friends = User.where(user_id: session[:cas_user]).first.friends
   end
 
   def index
