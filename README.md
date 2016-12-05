@@ -14,6 +14,8 @@ To run the app, do the following
 
 * Run `rails db:create`
 
+* Run `rails db:seed:load` to load a set of test data
+
 * Run `rails server`
 
 * Go to localhost:3000

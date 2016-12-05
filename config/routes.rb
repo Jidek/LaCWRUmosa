@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   end
 
   resources :locations do
+    collection do
+      get :near_me
+    end
     member do
       patch :check_in
     end

@@ -10,7 +10,18 @@
 
   <body>
     <header>
-      <%=content_tag :h1, link_to("LaCWRUmosa", root_path)%>
+      <nav>
+        <%=content_tag :h1, link_to("LaCWRUmosa", root_path)%>
+
+        <%=content_tag :ul do%>
+          <%=content_tag :li, link_to("Friends", friends_users_path)%>
+          <%=content_tag :li, link_to("Check Ins", check_ins_path)%>
+          <%=content_tag :li, link_to("Events", events_path)%>
+          <%=content_tag :li, link_to("Invitations", invites_path)%>
+          <%=content_tag :li, link_to("Friend Requests", friend_requests_path)%>
+          <%=content_tag :li, link_to("Locations", locations_path)%>
+        <%end%>
+      </nav>
     </header>
     <article>
       <%= yield %>

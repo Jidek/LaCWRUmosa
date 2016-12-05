@@ -18,7 +18,7 @@
 <%=content_tag :table do%>
   <%@invites.each do |invite|%>
     <%=content_tag :tr do%>
-      <%=content_tag :td, link_to(invite.user.nickname || invite.user_id, user_path(invite.user_id))%>
+      <%=content_tag :td, link_to(invite.user.name, user_path(invite.user_id))%>
     <%end%>
   <%end%>
 <%end%>

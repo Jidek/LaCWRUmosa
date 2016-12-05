@@ -4,8 +4,4 @@ class CheckInsController < ApplicationController
     @CheckIns = CheckIn.all
   end
 
-  def new
-    #@CheckIns = CheckIn
-  end
-
 end

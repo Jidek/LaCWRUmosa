@@ -1,10 +1,5 @@
 <%="Current User is #{@user}"%>
-
-<%=content_tag(:br)%>
-
-<%=link_to("Friends", friends_users_path)%>
-<%=link_to("Check Ins", check_ins_path)%>
-<%=link_to("Events", events_path)%>
-<%=link_to("Invitations", invites_path)%>
-<%=link_to("Friend Requests", friend_requests_path)%>
-<%=link_to("Locations", locations_path)%>
+<%=tag(:br)%>
+<%=render partial: 'check_ins/friends_check_in'%>
+<%=tag(:br)%>
+<%=render partial: 'events/friends_events'%>

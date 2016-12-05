@@ -5,6 +5,10 @@ class User < ActiveRecord::Base
     User.where(user_id: get_friend_ids(self.user_id))
   end
 
+  def name
+    self.nickname || self.user_id
+  end
+
   private
 
   def get_friend_ids(user_id)

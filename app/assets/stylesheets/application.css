@@ -10,10 +10,12 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require datetimepicker
- *= require_tree .
- *= require_self
+
+
+
  */
+
+
 
  @import url(//fonts.googleapis.com/css?family=Titillium+Web:400,700);
 
@@ -33,13 +35,13 @@ body {
 header {
   background: #0A304E;
   color: #FFF;
-  text-align: center;
   margin: 0 0 1.5em;
   padding: 1em;
 }
 
 header h1 {
   margin: 0;
+  float: left;
 }
 
 header a {
@@ -51,10 +53,32 @@ header a:hover {
   text-decoration: underline;
 }
 
-article {
-  max-width: 40em;
+header ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-align: right;
+  padding-top: .7em;
+}
+
+header ul li {
+  display: inline;
+
+}
+
+header ul li:before {
+	content: " | ";
+  color: #888;
+  padding: 0 .25em;
+}
+
+header ul li:first-child:before {
+	content: "";
+}
+
+header nav, article {
+  max-width: 45em;
   margin: 0 auto;
-  padding:
 }
 
 h1, h2, h3, h4, h5, h6 {
