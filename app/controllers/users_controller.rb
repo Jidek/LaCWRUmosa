@@ -2,7 +2,8 @@ class UsersController < ApplicationController
 
   def feed
     @user = User.find(session[:cas_user])
-    @check_ins = CheckIn.includes(:user, :location).where(user_id: @user.friends).order(time: :desc)
+    @check_ins = CheckIn.includes(:user, :location).where(user_id: @user.friends).order(time: :desc).first 10
+    @events = Event.includes(:location).includes(invite: :user).where('invites.user_id' => @user.friends).where('time > ?', Time.now).order(:time). first 10
   end
 
   def friends
