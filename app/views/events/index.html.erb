@@ -1,3 +1,5 @@
+<%=content_tag :h1, "Events"%>
+
 <%=form_tag events_path, method: :get do%>
   <%=label_tag :time_filter, "Hours from now: "%>
   <%=text_field :time, :filter, value: params[:time].try(:[], :filter)%>
