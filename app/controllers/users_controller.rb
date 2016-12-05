@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
   def feed
     @user = User.find(session[:cas_user])
-    @check_ins = CheckIn.includes(:user, :location).where(user_id: @user.friends)
+    @check_ins = CheckIn.includes(:user, :location).where(user_id: @user.friends).order(time: :desc)
   end
 
   def friends

@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   private
 
   def get_friend_ids(user_id)
-    FriendRequest.where(from_user_id: user_id, acceptance_status: FriendRequest.acceptance_statuses[:accepted]).select(:to_user_id) +
-    FriendRequest.where(to_user_id: user_id, acceptance_status: FriendRequest.acceptance_statuses[:accepted]).select(:from_user_id)
+    FriendRequest.where(from_user_id: user_id, acceptance_status: FriendRequest.acceptance_statuses[:accepted]).pluck(:to_user_id) +
+    FriendRequest.where(to_user_id: user_id, acceptance_status: FriendRequest.acceptance_statuses[:accepted]).pluck(:from_user_id)
   end
 end
