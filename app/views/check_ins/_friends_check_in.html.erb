@@ -3,7 +3,7 @@
   <%@check_ins.each do |check_in|%>
     <%=content_tag :tr do%>
       <%=content_tag :td do%>
-        <%="#{check_in.user.name} checked in at #{check_in.location.description} at #{check_in.time}"%>
+        <%=check_in.time.strftime("#{check_in.user.name} checked in to #{check_in.location.description} at %l:%M%p on %m/%d/%Y")%>
       <%end%>
     <%end%>
   <%end%>
