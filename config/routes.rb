@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   resources :events do
     member do
       post :send_event_invite
+      patch :rsvp
     end
   end
 

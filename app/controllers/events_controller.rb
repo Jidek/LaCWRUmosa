@@ -26,6 +26,8 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
     @invites = Invite.where(event_id: params[:id], rsvp: Invite.rsvps[:accepted])
+
+    @my_rsvp = Invite.where(event_id: params[:id], user_id: session[:cas_user]).first
   end
 
   def edit
@@ -66,8 +68,19 @@ class EventsController < ApplicationController
       request = Invite.new(user_id: user, event_id: event, rsvp: rsvp)
       request.save
     elsif(users.blank?)
-      flash[:notice] = 'No user with that IDy'
+      flash[:notice] = 'No user with that ID'
     end
+
+    redirect_to :back
+  end
+
+  def rsvp
+    event = params[:id]
+    rsvp = Invite.rsvps[:accepted]
+    user = session[:cas_user]
+
+    rsvp = Invite.new(user_id: user, event_id: event, rsvp: rsvp)
+    rsvp.save
 
     redirect_to :back
   end
