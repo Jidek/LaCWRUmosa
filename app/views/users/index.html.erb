@@ -1,3 +1,5 @@
+<%=content_tag :h1, "Users"%>
+
 <%=form_tag users_path, method: :get do%>
   <%=label_tag :user_id_filter, "User ID: "%>
   <%=text_field :user_id, :filter, value: params[:user_id].try(:[], :filter)%>
@@ -26,7 +28,7 @@
   <%=content_tag :tbody do%>
     <%@users.each do |user|%>
       <%=content_tag :tr do%>
-        <%=content_tag :td, link_to(user.user_id, user)%>
+        <%=content_tag :td, link_to(user.user_id, user_path(user))%>
         <%=content_tag :td, user.nickname%>
         <%=content_tag :td, user.grad_year%>
         <%=content_tag :td, user.major%>

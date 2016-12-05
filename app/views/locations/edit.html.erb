@@ -6,6 +6,13 @@
         <%=render partial: 'form', locals:{form:form}%>
       <%end%>
     <%end%>
+
+    <%=content_tag :tr do%>
+      <%=content_tag :td do%>
+        <%= tag "input", { "type": "button", "value": "Autopopulate my location", "onclick": "populateLocation()" } %>
+      <%end%>
+    <%end%>
+    
     <%=content_tag :tr do%>
       <%=content_tag :td do%>
         <%=submit_tag "Update"%>

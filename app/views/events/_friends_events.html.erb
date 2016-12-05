@@ -7,7 +7,7 @@
            " going to " +
            link_to(event.location.description, location_path(event.location)) +
            " at " +
-           event.time.strftime("%l:%M%p on %m/%d/%Y")).html_safe%>
+           link_to(event.time.strftime("%l:%M%p on %m/%d/%Y"), event)).html_safe%>
       <%end%>
     <%end%>
   <%end%>

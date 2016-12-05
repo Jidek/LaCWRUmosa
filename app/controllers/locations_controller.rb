@@ -80,7 +80,7 @@ class LocationsController < ApplicationController
 
     if @latitude.present? and @longitude.present?
       point = [@latitude, @longitude]
-      @locations = Location.near(point, 500, order: false).to_a.sort
+      @locations = Location.near(point, 500, order: false).to_a.sort.reverse
     end
   end
 

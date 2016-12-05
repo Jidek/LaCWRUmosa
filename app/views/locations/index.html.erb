@@ -1,3 +1,5 @@
+<%=content_tag :h1, "Locations"%>
+
 <%=form_tag locations_path, method: :get do%>
   <%=label_tag :description_filter, "Description: "%>
   <%=text_field :description, :filter, value: params[:description].try(:[], :filter)%>
@@ -44,3 +46,5 @@
 <%=link_to "New Location", new_location_path%>
 <%=content_tag :br%>
 <%=link_to "Indoor Locations", indoor_locations_path%>
+<%=content_tag :br%>
+<%=link_to "Locations Near Me", near_me_locations_path%>

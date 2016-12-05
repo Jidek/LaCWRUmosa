@@ -1,3 +1,5 @@
+<%=content_tag :h1, "#{@user.nickname || @user.user_id}'s Profile"%>
+
 <%=content_tag :table, class: "key-value" do%>
   <%=content_tag :tr do%>
     <%=content_tag :th, "Case ID"%>
