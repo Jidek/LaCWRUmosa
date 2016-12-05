@@ -53,7 +53,7 @@
   }
 
   <%if params[:latitude].blank? || params[:longitude].blank?%>
-    navigator.geolocation.getCurrentPosition(applyCoordinates, handleError, {maximumAge: 30000});
+    navigator.geolocation.getCurrentPosition(applyCoordinates, handleError, {maximumAge: 0});
   <%end%>
 
 <%end%>
