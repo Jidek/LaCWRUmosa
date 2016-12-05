@@ -1,0 +1,35 @@
+<%=content_tag :table, class: "colored" do%>
+  <%=content_tag :thead do%>
+    <%=content_tag :tr do%>
+      <%=content_tag :th, "Query"%>
+      <%=content_tag :th, "User CPU Time"%>
+      <%=content_tag :th, "System CPU Time"%>
+      <%=content_tag :th, "Total CPU Time"%>
+      <%=content_tag :th, "Elapsed Time"%>
+    <%end%>
+  <%end%>
+  <%=content_tag :tbody do%>
+    <%=content_tag :tr do%>
+      <%=content_tag :td, "Friends Query"%>
+      <%@friends_query.each do |q|%>
+        <%=content_tag :td, q%>
+      <%end%>
+    <%end%>
+  <%end%>
+  <%=content_tag :tbody do%>
+    <%=content_tag :tr do%>
+      <%=content_tag :td, "Events Query"%>
+      <%@events_query.each do |q|%>
+        <%=content_tag :td, q%>
+      <%end%>
+    <%end%>
+  <%end%>
+  <%=content_tag :tbody do%>
+    <%=content_tag :tr do%>
+      <%=content_tag :td, "Locations Query"%>
+      <%@locations_query.each do |q|%>
+        <%=content_tag :td, q%>
+      <%end%>
+    <%end%>
+  <%end%>
+<%end%>

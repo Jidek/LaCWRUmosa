@@ -22,6 +22,8 @@ Rails.application.routes.draw do
 
   resources :check_ins
 
+  resources :statistics
+
   resources :events do
     member do
       post :send_event_invite
