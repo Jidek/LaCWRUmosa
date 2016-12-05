@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
 
   def feed
-    @user = session[:cas_user]
-    @check_ins = CheckIn.includes(:user, :location).where(user_id: User.where(user_id: session[:cas_user]).first.friends)
+    @user = User.find(session[:cas_user])
+    @check_ins = CheckIn.includes(:user, :location).where(user_id: @user.friends)
   end
 
   def friends
@@ -40,7 +40,6 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @request = FriendRequest.where(from_user_id: session[:cas_user], to_user_id: params[:id]).first
-    @check_ins = CheckIn.where(user_id: params[:id]).count
   end
 
   def edit

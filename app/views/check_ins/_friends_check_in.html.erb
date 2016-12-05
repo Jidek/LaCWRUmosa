@@ -1,5 +1,5 @@
 <!-- The following partial is being organized into a table to allow for CSSing per row. -->
-<%=content_tag :table do%>
+<%=content_tag :table, class: "colored" do%>
   <%@check_ins.each do |check_in|%>
     <%=content_tag :tr do%>
       <%=content_tag :td do%>
