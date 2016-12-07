@@ -17,8 +17,8 @@ module ApplicationHelper
   end
 
   def print_with_count(text, records)
-    if records.size > 0
-      return "#{text} (#{records.size})"
+    if records > 0
+      return "#{text} (#{records})"
     else
       return text
     end
