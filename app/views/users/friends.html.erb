@@ -1,9 +1,7 @@
 <%=content_tag :h1, "Friends"%>
 
-<%=content_tag :table, class: "key-value" do%>
+<%=content_tag :ul do%>
   <%@friends.each do |friend|%>
-    <%=content_tag :tr do%>
-      <%=content_tag :td, link_to(friend.name, user_path(friend.user_id))%>
-    <%end%>
+      <%=content_tag :li, link_to(friend.name, user_path(friend.user_id))%>
   <%end%>
 <%end%>
