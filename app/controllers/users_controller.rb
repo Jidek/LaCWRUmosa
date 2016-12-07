@@ -40,7 +40,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @request = FriendRequest.where(from_user_id: session[:cas_user], to_user_id: params[:id]).first
+    @request = (FriendRequest.where(from_user_id: session[:cas_user], to_user_id: params[:id]) +
+                FriendRequest.where(from_user_id: params[:id], to_user_id: session[:cas_user])).first
   end
 
   def edit
