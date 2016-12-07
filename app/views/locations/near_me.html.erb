@@ -22,7 +22,7 @@
           <%=content_tag :td, link_to(location.id, location)%>
           <%=content_tag :td, location.score%>
           <%=content_tag :td, location.description%>
-          <%=content_tag :td, location.distance%>
+          <%=content_tag :td, print_miles(location.distance)%>
           <%=content_tag :td, location.indoor_location.try(:building) || "-"%>
           <%=content_tag :td, location.indoor_location.try(:floor) || "-"%>
           <%=content_tag :td, location.indoor_location.try(:room) || "-"%>

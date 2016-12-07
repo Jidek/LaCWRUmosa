@@ -8,4 +8,12 @@ module ApplicationHelper
     return users[0..-2].map{|user| link_to user.name, user_path(user)}.join(", ") + ", and #{link_to users.last.name, user_path(users.last)} are"
   end
 
+  def print_miles(distance)
+    if distance >= 1
+      return "#{distance.round(2)} miles"
+    else
+      return "#{(distance*5280).round(0)} feet"
+    end
+  end
+
 end
