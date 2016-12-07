@@ -31,7 +31,7 @@
 
 
 <% if @request.blank? && session[:cas_user] != @user.id %>
-  <%=link_to "Send friend request", send_friend_request_user_url(@user), {method: :patch} %>
+  <%=link_to "Send friend request", send_friend_request_user_url(@user), {method: :patch, class: "button"} %>
 <%end%>
 
 <%=link_to "User List", users_path%>

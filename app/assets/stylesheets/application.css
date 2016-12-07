@@ -118,3 +118,20 @@ table.key-value th {
   text-align: left;
   padding-right: 1em;
 }
+
+.button {
+  background: #E3E3E3;
+  background: linear-gradient(#E3E3E3, #F7F7F7);
+  border: 1px solid #AFAFAF;
+  color: #000;
+  text-decoration: none;
+  margin: 0 .25em;
+  padding: 0 .25em;
+  border-radius: .125em;
+}
+
+.button:hover {
+  text-decoration: none;
+  background: #E3E3E3;
+  background: linear-gradient(#CACACA, #E3E3E3);
+}

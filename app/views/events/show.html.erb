@@ -38,7 +38,7 @@
 <%=tag(:br)%>
 
 <%if @my_rsvp.blank?%>
-  <%= link_to "RSVP", rsvp_event_path(@event.id), {method: :patch} %>
+  <%= link_to "RSVP", rsvp_event_path(@event.id), {method: :patch, class: "button"} %>
   <%=tag(:br)%>
 <%end%>
 
