@@ -52,6 +52,10 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
     @event.creator_id = session[:cas_user]
     if @event.save
+      # The event's creator will have an RSVP to the event by default.
+      creator_rsvp = Invite.new(user_id: session[:cas_user], event_id: @event.id, rsvp: Invite.rsvps[:accepted])
+      creator_rsvp.save
+
       redirect_to event_url(@event)
     else
       render action: :new
