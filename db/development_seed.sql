@@ -80,9 +80,12 @@ CREATE TABLE `events` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `time` datetime NOT NULL,
   `location_id` int(11) NOT NULL,
+  `creator_id` varchar(7) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `location_id` (`location_id`),
-  CONSTRAINT `events_ibfk_1` FOREIGN KEY (`location_id`) REFERENCES `locations` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  KEY `creator_id` (`creator_id`),
+  CONSTRAINT `events_ibfk_1` FOREIGN KEY (`location_id`) REFERENCES `locations` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `events_ibfk_2` FOREIGN KEY (`creator_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -92,7 +95,7 @@ CREATE TABLE `events` (
 
 LOCK TABLES `events` WRITE;
 /*!40000 ALTER TABLE `events` DISABLE KEYS */;
-INSERT INTO `events` VALUES (3,'2016-12-05 02:26:00',4),(4,'2016-12-06 12:00:00',6);
+INSERT INTO `events` VALUES (3,'2016-12-05 02:26:00',4,NULL),(4,'2016-12-06 12:00:00',6,NULL);
 /*!40000 ALTER TABLE `events` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -120,7 +123,7 @@ CREATE TABLE `friend_requests` (
 
 LOCK TABLES `friend_requests` WRITE;
 /*!40000 ALTER TABLE `friend_requests` DISABLE KEYS */;
-INSERT INTO `friend_requests` VALUES ('irl','atm62',0),('jdk138','atm62',1);
+INSERT INTO `friend_requests` VALUES ('atm62','kjn33',1),('irl','atm62',0),('jdk138','atm62',1);
 /*!40000 ALTER TABLE `friend_requests` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -258,7 +261,7 @@ CREATE TABLE `schema_migrations` (
 
 LOCK TABLES `schema_migrations` WRITE;
 /*!40000 ALTER TABLE `schema_migrations` DISABLE KEYS */;
-INSERT INTO `schema_migrations` VALUES ('20161130183601');
+INSERT INTO `schema_migrations` VALUES ('20161130183601'),('20161211053813');
 /*!40000 ALTER TABLE `schema_migrations` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -284,7 +287,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES ('atm62','Drew',2017,'Computer Science'),('irl','Ian',2017,'Computer Science'),('jdk138','Joel',2017,'Computer Science');
+INSERT INTO `users` VALUES ('atm62','Drew',2017,'Computer Science'),('irl','Ian',2017,'Computer Science'),('jdk138','Joel',2017,'Computer Science'),('kjn33','\"Not In This Class\"',-2017,'Computer Science');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -297,4 +300,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-12-05  2:45:28
+-- Dump completed on 2016-12-11  1:13:17
