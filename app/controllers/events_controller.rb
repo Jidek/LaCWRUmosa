@@ -50,6 +50,7 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
+    @event.creator_id = session[:cas_user]
     if @event.save
       redirect_to event_url(@event)
     else
