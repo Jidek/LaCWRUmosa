@@ -50,9 +50,14 @@ class CreateTables < ActiveRecord::Migration[5.0]
             id int NOT NULL AUTO_INCREMENT,
             time datetime NOT NULL,
             location_id int NOT NULL,
+            creator_id varchar(7) NOT NULL,
             PRIMARY KEY (id),
             FOREIGN KEY (location_id)
               REFERENCES locations(id)
+              ON DELETE CASCADE
+              ON UPDATE CASCADE,
+            FOREIGN KEY (creator_id)
+              REFERENCES users(user_id)
               ON DELETE CASCADE
               ON UPDATE CASCADE
           )",
