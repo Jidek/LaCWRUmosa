@@ -11,8 +11,11 @@
   <%end%>
 <%end%>
 
-<%=link_to "Edit", edit_event_path(@event)%>
-<%=tag(:br)%>
+
+<%if session[:cas_user] == @event.creator_id%>
+  <%=link_to "Edit", edit_event_path(@event)%>
+  <%=tag(:br)%>
+<%end%>
 
 <%=content_tag :h3, "Users Going"%>
 <%=content_tag :table do%>
