@@ -45,15 +45,16 @@
 
   function handleError(error) {
   	if (error.code == 1)
-  		var message = "If you don&rsquo;t give us your location, we can&rsquo;t find locations near you!";
+  		var message = "If you don&rsquo;t give us your location, we can&rsquo;t find locations near you! Check your browser for a popup asking for permission.";
   	else {
   		var message = "There was a problem finding your location.";
   	}
-  	document.getElementById("geolocation").innerHTML=message;
+  	document.getElementById("status").innerHTML=message;
   }
 
   <%if params[:latitude].blank? || params[:longitude].blank?%>
     navigator.geolocation.getCurrentPosition(applyCoordinates, handleError, {maximumAge: 0});
+    document.getElementById("status").innerHTML="Finding location&hellip;";
   <%end%>
 
 <%end%>

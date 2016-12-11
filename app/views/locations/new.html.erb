@@ -9,7 +9,7 @@
 
     <%=content_tag :tr do%>
       <%=content_tag :td do%>
-        <%= tag "input", { "type": "button", "value": "Autopopulate my location", "onclick": "populateLocation()" } %>
+        <%= tag "input", { "type": "button", "value": "Autopopulate my location", "onclick": "populateLocation(event)" } %>
       <%end%>
     <%end%>
 
