@@ -55,6 +55,11 @@ class LocationsController < ApplicationController
     end
   end
 
+  def destroy
+    Location.find(params[:id]).destroy
+    redirect_to locations_url
+  end
+
   def edit
     @location = Location.find(params[:id])
   end

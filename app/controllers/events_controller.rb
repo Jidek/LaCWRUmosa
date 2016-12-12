@@ -62,6 +62,15 @@ class EventsController < ApplicationController
     end
   end
 
+  def destroy
+    Event.transaction do
+      Invite.destroy(event_id: params[:id])
+      Event.find(params[:id]).destroy
+    end
+    
+    redirect_to events_url
+  end
+
   def send_event_invite
     event = params[:id]
     rsvp = Invite.rsvps[:no_response]

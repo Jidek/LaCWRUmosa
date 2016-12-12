@@ -39,6 +39,11 @@ class IndoorLocationsController < ApplicationController
     end
   end
 
+  def destroy
+    IndoorLocation.find(params[:id]).destroy
+    redirect_to indoor_locations_url
+  end
+
   def edit
     @indoor_location = IndoorLocation.find(params[:id])
   end

@@ -30,6 +30,9 @@
         <%=content_tag :td, location.floor%>
         <%=content_tag :td, location.room%>
         <%=content_tag :td, link_to("edit", edit_indoor_location_path(location))%>
+        <%=content_tag :td do%>
+          <%=link_to "Delete", indoor_location_path(location), data: {confirm: 'Really delete this indoor location?'}, method: :delete%>
+        <%end%>
       <%end%>
     <%end%>
   <%end%>
